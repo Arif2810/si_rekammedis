@@ -12,15 +12,6 @@
       </div>
     </div>
     <!-- search form -->
-    <form action="#" method="get" class="sidebar-form">
-      <div class="input-group">
-        <input type="text" name="q" class="form-control" placeholder="Search...">
-        <span class="input-group-btn">
-              <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-              </button>
-            </span>
-      </div>
-    </form>
     <!-- /.search form -->
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu" data-widget="tree">
@@ -38,36 +29,8 @@
         </a>
       </li>
       <li>
-        <a href="{{ route('polyclinic.index') }}">
-          <i class="glyphicon glyphicon-tags"></i> <span> Poliklinik</span>
-          <span class="pull-right-container">
-          </span>
-        </a>
-      </li>
-      <li>
-        <a href="{{ route('terapis.index') }}">
-          <i class="fa fa-user-md"></i> <span> Penerapi</span>
-          <span class="pull-right-container">
-          </span>
-        </a>
-      </li>
-      <li>
-        <a href="{{ route('treatment.index') }}">
-          <i class="fa fa-check-square"></i> <span> Tindakan</span>
-          <span class="pull-right-container">
-          </span>
-        </a>
-      </li>
-      <li>
         <a href="{{ route('medical_record.index') }}">
           <i class="glyphicon glyphicon-floppy-save"></i> <span> Rekam Medis</span>
-          <span class="pull-right-container">
-          </span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <i class="glyphicon glyphicon-transfer"></i> <span> Kunjungan</span>
           <span class="pull-right-container">
           </span>
         </a>
@@ -83,8 +46,9 @@
           </span>
         </a>
         <ul class="treeview-menu">
+          <li><a href="{{ route('diagnosis.index') }}"><i class="fa fa-circle-o"></i>Diagnosa</a></li>
+          <li><a href="{{ route('treatment.index') }}"><i class="fa fa-circle-o"></i>Tindakan</a></li>
           <li><a href="{{ route('agama.index') }}"><i class="fa fa-circle-o"></i> Agama</a></li>
-          <li><a href="{{ route('position.index') }}"><i class="fa fa-circle-o"></i> Jabatan</a></li>
           <li><a href="{{ route('user.index') }}"><i class="fa fa-circle-o"></i> User</a></li>
           <li><a href="{{ route('gender.index') }}"><i class="fa fa-circle-o"></i> Gender</a></li>
         </ul>

@@ -2,7 +2,7 @@
 <html>
 <head>
 	@include('templates.head')
-  <title>Halaman Poliklinik</title>
+  <title>Halaman Diagnosa</title>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -20,31 +20,32 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Data Poliklinik
+        Data Diagnosa
         <small>advanced tables</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="{{ url('/') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Data Poliklinik</li>
+        <li class="active">Data Diagnosa</li>
       </ol>
     </section>
 
     <!-- Main content -->
-    <section class="content">
+        <section class="content">
           <div class="row">
             <div class="col-xs-12">
                 <div class="box" style="padding: 0 30px">
                   <div class="box-header">
                     <div class="box-header">
-                      <h5 class="box-title">Tambah data poliklinik | Nurul Nabawi Al-Kautsar</h5>
+                      <h5 class="box-title">Tambah data diagnosa klinik Nurul Nabawi Al-Kautsar</h5>
                     </div>
                     <div class="box-body">
                       @include('nurul_nabawi/validation')
-                      <form action="{{ url('/polyclinic') }}" method="post">
+                      <form action="{{ url('/diagnosis') }}" method="post">
                         <div>
-                          <label>Nama Poliklinik</label>
-                          <input class="form-control" type="text" name="nama_poli" required="">
-                        </div><br>
+                          <label>Diagnosa</label>
+                          <!-- <input class="form-control" type="text" name="nama_agama"> -->
+                          {!!Form::text('nama_diagnosa', null, ['class'=>'form-control'])!!}
+                        </div><br><br>
                         <div>
                           <input class="btn btn-primary" type="submit" name="submit" value="Tambahkan">
                           {{csrf_field()}}
@@ -62,30 +63,28 @@
           <div class="box" style="padding: 0 30px">
             <div class="box-header">
               <div class="box-header">
-                <h5 class="box-title">Data poliklinik klinik Nurul Nabawi Al-Kautsar</h5>
+                <h3 class="box-title">Data diagnosa klinik Nurul Nabawi Al-Kautsar</h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
                 @include('nurul_nabawi/notification')
-                <div>
-                </div><br>
                 <table id="example1" class="table table-bordered table-hover">
                   <thead>
                     <?php $no=1; ?>
                     <tr style="background-color: rgb(230, 230, 230);">
                       <th>No</th>
-                      <th>Nama Poliklinik</th>
+                      <th>Diagnosa</th>
                       <th>Action</th>                 
                     </tr>
                   </thead>
                   <tbody>
-                    @foreach($polyclinics as $polyclinics)
+                    @foreach($diagnoses as $diagnosis)
                     <tr>
                       <td>{{ $no++ }}</td>
-                      <td>{{ $polyclinics->nama_poli }}</td>
+                      <td>{{ $diagnosis->nama_diagnosa }}</td>
                       <td>
-                        <a href="polyclinic/{{$polyclinics->id_poli}}/edit"><button class="btn btn-warning btn-xs">Edit</button></a>
-                        <button class="btn btn-danger btn-xs" data-delid={{$polyclinics->id_poli}} data-toggle="modal" data-target="#delete"><i class="glyphicon glyphicon-trash"></i> Hapus</button>
+                        <a href="{{ url('diagnosis') }}/{{$diagnosis->id_diagnosa}}/edit"><button class="btn btn-warning btn-xs">Edit</button></a>
+                        <button class="btn btn-danger btn-xs" data-delid={{$diagnosis->id_diagnosa}} data-toggle="modal" data-target="#delete"><i class="glyphicon glyphicon-trash"></i> Hapus</button>
                       </td>
                     </tr>
                     @endforeach
@@ -104,7 +103,7 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
+  
   <footer class="main-footer">
     @include('templates.footer')
   </footer>
@@ -135,7 +134,6 @@
 <script src="{{ url('assets/dist/js/adminlte.min.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ url('assets/dist/js/demo.js') }}"></script>
-
 <!-- page script -->
 <script>
   $(function () {
@@ -160,12 +158,12 @@
         </button>
         <h4 class="modal-title text-center" id="myModalLabel">Delete Confirmation</h4>
       </div>
-      <form action="{{route('polyclinic.destroy', 'test')}}" method="post">
+      <form action="{{route('diagnosis.destroy', 'test')}}" method="post">
         {{method_field('delete')}}
         {{csrf_field()}}
         <div class="modal-body" style="background-color: rgb(230, 230, 230)">
           <p class="text-center">Apakah anda yakin akan menghapus ini?</p>
-          <input type="hidden" name="id_poli" id="del_id" value="">
+          <input type="hidden" name="id_diagnosa" id="del_id" value="">
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-danger">Ya, hapus ini</button>
@@ -175,8 +173,6 @@
     </div>
   </div>  
 </div>
-
 @include('templates.modal')
 </body>
 </html>
-

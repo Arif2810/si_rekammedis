@@ -2,7 +2,7 @@
 <html>
 <head>
 	@include('templates.head')
-	<title>Edit Jabatan</title>
+	<title>Edit Diagnosa</title>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 	<div class="wrapper">
@@ -20,13 +20,13 @@
 		    <!-- Content Header (Page header) -->
 		    <section class="content-header">
 		      <h1>
-		        Data Jabatan
+		        Data Diagnosa
 		        <small>advanced tables</small>
 		      </h1>
 		      <ol class="breadcrumb">
 		        <li><a href="{{ url('/') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-		        <li><a href="{{ route('position.index') }}">Data Jabatan</a></li>
-		        <li class="active">Edit Data Jabatan</li>
+		        <li><a href="{{ route('diagnosis.index') }}">Data Diagnosa</a></li>
+		        <li class="active">Edit Data Diagnosa</li>
 		      </ol>
 		    </section>
 
@@ -36,14 +36,15 @@
 		          		<div class="box">
 		            		<div class="box-header">
 		            			<div class="box-header">
-					              <h5 class="box-title">Edit data jabatan klinik Nurul Nabawi Al-Kautsar</h5>
+					              <h5 class="box-title">Edit data diagnosa klinik Nurul Nabawi | Al-Kautsar</h5>
 					            </div>
 					            <div class="box-body">
 					            	@include('nurul_nabawi/validation')
-					            	<form action="{{ url('/position') }}/{{ $positions->id_jabatan }}" method="post">
+					            	@include('nurul_nabawi/notification')
+					            	<form action="{{ url('/diagnosis') }}/{{ $diagnoses->id_diagnosa }}" method="post">
 					            		<div>
-											<label>Jabatan</label>
-											<input class="form-control" type="text" name="nama_jabatan" value="{{ $positions->nama_jabatan }}">
+											<label>Diagnosa</label>
+											<input class="form-control" type="text" name="nama_diagnosa" value="{{ $diagnoses->nama_diagnosa }}">
 										</div><br><br>								
 										<div>
 											<input class="btn btn-primary" type="submit" name="submit" value="Simpan">
@@ -59,6 +60,8 @@
 				</div>
 			</section>
 		</div>
+		<!-- /.content-wrapper -->
+		
 		<footer class="main-footer">
     		@include('templates.footer')
   		</footer>

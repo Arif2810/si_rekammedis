@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 use App\Http\Requests;
-use App\Polyclinic;
+use App\Diagnosis;
 
-class PolyclinicController extends Controller
+class DiagnosisController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,9 @@ class PolyclinicController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        
-        $polyclinics = Polyclinic::all(); 
-        return view('nurul_nabawi.polyclinic.index', ['polyclinics'=>$polyclinics]);
+
+        $diagnoses = Diagnosis::orderBy('id_diagnosa', 'DESC')->get(); 
+        return view('nurul_nabawi.diagnosis.index', ['diagnoses'=>$diagnoses]);   
     }
 
     /**
@@ -28,7 +28,7 @@ class PolyclinicController extends Controller
      */
     // public function create()
     // {
-    //     
+        
     // }
 
     /**
@@ -37,19 +37,19 @@ class PolyclinicController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request){
-
+    public function store(Request $request)
+    {
         $this->validate($request, [
-            'nama_poli' => 'required',
+            'nama_diagnosa' => 'required',
         ]);
 
-        $polyclinics = new Polyclinic;
-        $polyclinics->id_poli   = $request->id_poli;
-        $polyclinics->nama_poli = $request->nama_poli;
-        $polyclinics->save();
+        $diagnoses = new Diagnosis;
+        $diagnoses->id_diagnosa   = $request->id_diagnosa;
+        $diagnoses->nama_diagnosa = $request->nama_diagnosa;
+        $diagnoses->save();
         // dd('kesini');
 
-        return redirect('polyclinic')->with('pesan', 'Data berhasil ditambahkan');
+        return redirect('diagnosis')->with('pesan', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -58,9 +58,8 @@ class PolyclinicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    // public function show($id)
-    // {
-        
+    // public function show($id_diagnosa){
+
     // }
 
     /**
@@ -69,10 +68,10 @@ class PolyclinicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id_poli){
-
-        $polyclinics = Polyclinic::find($id_poli);
-        return view('nurul_nabawi/polyclinic/edit', compact('polyclinics'));
+    public function edit($id_diagnosa)
+    {
+        $diagnoses = Diagnosis::find($id_diagnosa);
+        return view('nurul_nabawi/diagnosis/edit', compact('diagnoses'));
     }
 
     /**
@@ -82,16 +81,16 @@ class PolyclinicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id_poli){
+    public function update(Request $request, $id_diagnosa){
 
         $this->validate($request, [
-            'nama_poli' => 'required',
+            'nama_diagnosa' => 'required',
         ]);
-        
-        $polyclinics = Polyclinic::find($id_poli);
-        $polyclinics->nama_poli = $request->nama_poli;
-        $polyclinics->save();
-        return redirect('polyclinic')->with('pesan', 'Data berhasil di update');
+
+        $diagnoses = Diagnosis::find($id_diagnosa);
+        $diagnoses->nama_diagnosa = $request->nama_diagnosa;
+        $diagnoses->save();
+        return redirect('diagnosis')->with('pesan', 'Data berhasil di update');
     }
 
     /**
@@ -101,9 +100,9 @@ class PolyclinicController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request){
-        
-        $polyclinics = Polyclinic::find($request->id_poli);
-        $polyclinics->delete();
-        return redirect('polyclinic')->with('pesan', 'Data berhasil dihapus');
+
+        $diagnoses = Diagnosis::find($request->id_diagnosa);
+        $diagnoses->delete();
+        return back()->with('pesan', 'Data berhasil dihapus');
     }
 }

@@ -16,15 +16,8 @@ Route::group(['middleware'=>'auth'], function(){
 	Route::resource('patient', 'PatientController');
 	Route::get('/patient/{id_pasien}/show', 'PatientController@show');
 	//=========================================================================
-	Route::resource('terapis', 'TerapisController');
-	Route::get('/terapis/{id_terapis}/show', 'TerapisController@show');
-	//=========================================================================
 	Route::resource('medicine', 'MedicineController');
 	Route::get('/medicine/{id_obat}/show', 'MedicineController@show');
-	//=========================================================================
-	Route::resource('treatment', 'TreatmentController');
-	//=========================================================================
-	Route::resource('polyclinic', 'PolyclinicController');
 	//=========================================================================
 	Route::resource('medical_record', 'Medical_recordController');
 	Route::get('/medical_record/{id_mr}/show', 'Medical_recordController@show');
@@ -42,7 +35,8 @@ Route::group(['middleware'=>'auth'], function(){
 		Route::resource('user', 'UserController');
 		Route::resource('agama', 'AgamaController');
 		Route::resource('gender', 'GenderController');
-		Route::resource('position', 'PositionController');
+		Route::resource('diagnosis', 'DiagnosisController');
+		Route::resource('treatment', 'TreatmentController');
 	});
 	// Route::get('/user', 'UserController@index')->name('user.index')->middleware('akses.admin');
 	//=========================================================================
