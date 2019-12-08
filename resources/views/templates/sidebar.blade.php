@@ -67,8 +67,13 @@
         </ul>
       </li>
       <li>
-        <a href="/about">
-          <i class="glyphicon glyphicon-info-sign"></i> <span>About</span>
+        <a href="https://webprogrammingumri.github.io/">
+          <i class="glyphicon glyphicon-info-sign"></i> <span>About Klinik</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://arif2810.github.io/">
+          <i class="glyphicon glyphicon-info-sign"></i> <span>About Developer</span>
         </a>
       </li>
     </ul>
