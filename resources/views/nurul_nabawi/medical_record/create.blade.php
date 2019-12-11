@@ -35,74 +35,96 @@
 				<div class="col-xs-12">
 					<div class="box">
 						<div class="box-header">
-							<div class="box-header">
-								<h5 class="box-title">Tambah data rekam medis klinik Nurul Nabawi Al-Kautsar</h5>
-							</div>
-							<div class="box-body">
-								@include('nurul_nabawi/validation')
-								@include('nurul_nabawi/notification')
-								<form action="{{ url('/medical_record') }}" method="post">
-									<div>
-										<label for="tgl_periksa">Tanggal Periksa</label>
-										<input required="" class="form-control" type="date" name="tgl_periksa" id="tgl_periksa" value="<?=date('Y-m-d')?>">
-									</div><br>
-									<div>
-										<label>Nama Pasien</label>
-										<select required="" class="form-control" name="id_pasien">
-											<option>- Pilih Pasien -</option>
-											@foreach($patients as $patients)
-											<option value="{{$patients->id_pasien}}">{{$patients->nama_pasien}}</option>
-											@endforeach
-										</select>
-									</div><br>
-									<div>
-										<label for="riwayat">Riwayat Penyakit</label>
-										<textarea class="form-control" type="text" name="riwayat" id="riwayat" cols="80" rows="3"></textarea>
-									</div><br>
-									<div>
-										<label for="keluhan">Keluhan</label>
-										<textarea required="" class="form-control" type="text" name="keluhan" id="keluhan" cols="80" rows="3"></textarea>
-									</div><br>
-									<div>
-										<label for="check">Pemeriksaan</label>
-										<textarea class="form-control" type="text" name="check" id="check" cols="80" rows="3"></textarea>
-									</div><br>
-									<div>
-										<label for="diagnosa">Diagnosa</label>
-										<textarea required="" class="form-control" type="text" name="diagnosa" id="diagnosa" cols="80" rows="3"></textarea>
-									</div><br>
-									<div>
-										<label for="obat">Obat</label>
-										<select multiple="multiple" size="7" class="form-control" name="medicines[]" id="obat">
-											@foreach($medicines as $medicine)
-											<option value="{{$medicine->id_obat}}">{{$medicine->nama_obat}}</option>
-											@endforeach
-										</select>
-									</div><br>
-									<div>
-										<label for="resep">Resep</label>
-										<textarea class="form-control" type="text" name="resep" id="resep" cols="80" rows="3"></textarea>
-									</div><br>
-									<div>
-										<label for="ket">Keterangan</label>
-										<textarea class="form-control" type="text" name="ket" id="ket" cols="80" rows="3"></textarea>
-									</div><br>
-									<div>
-										<label for="tindakan">Tindakan</label>
-										<select required="" class="form-control" name="id_tindakan" id="tindakan">
-											<option>- Pilih Tindakan -</option>
-											@foreach($treatments as $treatments)
-											<option value="{{$treatments->id_tindakan}}">{{$treatments->nama_tindakan}}</option>
-											@endforeach
-										</select>
-									</div><br>
-									<div>
-										<input class="btn btn-primary" type="submit" name="submit" value="Tambahkan">
-										{{csrf_field()}}
-										<input type="reset" class="btn btn-danger" value="Reset">
+							<h5 class="box-title">Tambah data rekam medis klinik Nurul Nabawi Al-Kautsar</h5>
+						</div>
+						<div class="box-body">
+							@include('nurul_nabawi/validation')
+							@include('nurul_nabawi/notification')
+							<form action="{{ url('/medical_record') }}" method="post">
+
+								<div class="row">
+									<div class="col-xs-6">
+										
+										<div>
+											<label for="tgl_periksa">Tanggal Periksa</label>
+											<input required="" class="form-control" type="date" name="tgl_periksa" id="tgl_periksa" value="<?=date('Y-m-d')?>">
+										</div><br>
+										<div>
+											<label>Nama Pasien</label>
+											<select required="" class="form-control" name="id_pasien">
+												<option>- Pilih Pasien -</option>
+												@foreach($patients as $patients)
+												<option value="{{$patients->id_pasien}}">{{$patients->nama_pasien}}</option>
+												@endforeach
+											</select>
+										</div><br>
+										<div>
+											<label for="riwayat">Riwayat Penyakit</label>
+											<textarea class="form-control" type="text" name="riwayat" id="riwayat" cols="80" rows="3"></textarea>
+										</div><br>
+										<div>
+											<label for="keluhan">Keluhan</label>
+											<textarea required="" class="form-control" type="text" name="keluhan" id="keluhan" cols="80" rows="3"></textarea>
+										</div><br>
+										<div class="form-group">
+											<label for="check">Pemeriksaan</label>
+											<textarea class="form-control" type="text" name="check" id="check" cols="80" rows="3"></textarea>
+										</div>
+										
+										
 									</div>
-								</form>
-							</div>
+
+									<div class="col-xs-6">
+										<div class="form-group">
+											<label for="diagnosa">Diagnosa</label>
+											<select required="" class="form-control" name="id_diagnosa" id="diagnosa">
+												<option>- Diagnosa -</option>
+												@foreach($diagnoses as $diagnosis)
+												<option value="{{$diagnosis->id_diagnosa}}">{{$diagnosis->nama_diagnosa}}</option>
+												@endforeach
+											</select>
+										</div>
+										
+										<div class="form-group">
+											<label for="tindakan">Tindakan</label>
+											<select multiple="multiple" size="3" class="form-control" name="treatments[]" id="tindakan">
+												@foreach($treatments as $treatment)
+												<option value="{{$treatment->id_tindakan}}">{{$treatment->nama_tindakan}}</option>
+												@endforeach
+											</select>
+										</div><br>
+										<div>
+											<label for="obat">Obat</label>
+											<select multiple="multiple" size="3" class="form-control" name="medicines[]" id="obat">
+												@foreach($medicines as $medicine)
+												<option value="{{$medicine->id_obat}}">{{$medicine->nama_obat}}</option>
+												@endforeach
+											</select>
+										</div><br>
+										<div>
+											<label for="resep">Resep</label>
+											<textarea class="form-control" type="text" name="resep" id="resep" cols="80" rows="3"></textarea>
+										</div><br>
+										<div>
+											<label for="ket">Keterangan</label>
+											<textarea class="form-control" type="text" name="ket" id="ket" cols="80" rows="3"></textarea>
+										</div><br>
+										
+
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-xs-12">
+										<div class="form-group">
+											<input class="btn btn-primary" type="submit" name="submit" value="Tambahkan">
+											{{csrf_field()}}
+											<input type="reset" class="btn btn-danger" value="Reset">
+										</div>
+									</div>
+								</div>
+
+							</form>
 						</div>
 					</div>
 				</div>

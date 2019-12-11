@@ -14,12 +14,16 @@ class Medical_record extends Model{
         return $this->belongsTo(Patient::class, 'id_pasien');
     }
 
-    public function treatments(){
+    public function diagnoses(){
 
-        return $this->belongsTo('App\Treatment', 'id_tindakan');
+        return $this->belongsTo('App\Diagnosis', 'id_diagnosa');
     }
 
     public function medicines() {
 		return $this->belongsToMany('App\Medicine', 'medical_record_medicine', 'id_mr', 'id_obat');
 	}
+
+    public function treatments() {
+        return $this->belongsToMany('App\Treatment', 'medical_record_treatment', 'id_mr', 'id_tindakan');
+    }
 }

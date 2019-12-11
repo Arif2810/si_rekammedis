@@ -48,9 +48,9 @@
                   <?php $no=1; ?>
                   <tr style="background-color: rgb(230, 230, 230);">
                     <th>No</th>
+                    <th>Tgl Periksa</th>
                     <th>Nama Pasien</th>
                     <th>Diagnosa</th>
-                    <th>Tgl Periksa</th>
                     <th>Obat</th>
                     <th>Action</th>                 
                   </tr>
@@ -59,9 +59,9 @@
                   @foreach($medical_records as $medical_records)
                   <tr>
                     <td>{{ $no++ }}</td>
-                    <td>{{ $medical_records->patients->nama_pasien }}</td>
-                    <td>{{ $medical_records->diagnosa }}</td>
                     <td>{{ $medical_records->tgl_periksa }}</td>
+                    <td>{{ $medical_records->patients->nama_pasien }}</td>
+                    <td>{{ $medical_records->diagnoses->nama_diagnosa }}</td>
                     <td>
                       <ul>
                         @foreach($medical_records->medicines as $medicine)

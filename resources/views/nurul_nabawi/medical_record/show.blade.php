@@ -67,7 +67,7 @@
                   </tr>
                   <tr>
                   	<th class="col-md-2">Diagnosa</th>
-                  	<td><p>{{ $medical_records->diagnosa }}</p></td>                                  
+                  	<td><p>{{ $medical_records->diagnoses->nama_diagnosa }}</p></td>                                  
                   </tr>
                   <tr>
                   	<th class="col-md-2" style="vertical-align: middle;">Obat</th>                   
@@ -88,8 +88,14 @@
                     <td><p>{{ $medical_records->ket }}</p></td>                                  
                   </tr>
                   <tr>
-                  	<th class="col-md-2">Tindakan</th>
-                  	<td>{{ $medical_records->treatments->nama_tindakan }}</td>                                  
+                    <th class="col-md-2" style="vertical-align: middle;">Tindakan</th>                   
+                    <td>
+                      <ol style="padding: 12px;">
+                        @foreach($medical_records->treatments as $treatment)
+                        <li>{{ $treatment->nama_tindakan }}</li>
+                        @endforeach
+                      </ol>
+                    </td>                                                     
                   </tr>
                 </thead>
               </table><br>

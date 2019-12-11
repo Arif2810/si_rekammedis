@@ -17,7 +17,7 @@ class MedicineController extends Controller
      */
     public function index(){
         
-        $medicines = Medicine::all(); 
+        $medicines = Medicine::orderBy('nama_obat', 'ASC')->get(); 
         return view('nurul_nabawi.medicine.index', ['medicines'=>$medicines]);
     }
 

@@ -9,8 +9,10 @@ use App\Http\Requests;
 use App\Medical_record;
 use App\Patient;
 use App\Medicine;
+use App\Diagnosis;
 use App\Treatment;
 use App\Medical_record_medicine;
+use App\Medical_record_treatment;
 
 class Medical_recordController extends Controller
 {
@@ -21,7 +23,7 @@ class Medical_recordController extends Controller
      */
     public function index(){
 
-        $medical_records = Medical_record::get();
+        $medical_records = Medical_record::orderBy('id_mr', 'DESC')->get();
         return view('nurul_nabawi.medical_record.index', ['medical_records' => $medical_records]);
     }
 
@@ -35,8 +37,9 @@ class Medical_recordController extends Controller
         $patients = Patient::all();
         $treatments = Treatment::all();
         $medicines = Medicine::all();
+        $diagnoses = Diagnosis::all();
 
-        return view('nurul_nabawi.medical_record.create', compact('patients', 'medicines', 'treatments'));
+        return view('nurul_nabawi.medical_record.create', compact('patients', 'medicines', 'treatments', 'diagnoses'));
     }
 
     /**
@@ -50,10 +53,9 @@ class Medical_recordController extends Controller
         // insert data
         $medical_records = new Medical_record;
 
-        $medical_records->id_tindakan = $request->id_tindakan;
         $medical_records->resep = $request->resep;
         $medical_records->id_pasien = $request->id_pasien;
-        $medical_records->diagnosa = $request->diagnosa;
+        $medical_records->id_diagnosa = $request->id_diagnosa;
         $medical_records->keluhan = $request->keluhan;
         $medical_records->tgl_periksa = $request->tgl_periksa;
         $medical_records->ket = $request->ket;
@@ -62,6 +64,7 @@ class Medical_recordController extends Controller
 
         $medical_records->save();
         $medical_records->medicines()->sync($request->medicines, false);
+        $medical_records->treatments()->sync($request->treatments, false);
 
         return redirect('medical_record')->with('pesan', 'Data berhasil ditambahkan');
     }
@@ -108,10 +111,9 @@ class Medical_recordController extends Controller
 
       $medical_records = Medical_record::find($id_mr);
 
-      $medical_records->id_tindakan = $request->id_tindakan;
       $medical_records->resep = $request->resep;
       $medical_records->id_pasien = $request->id_pasien;
-      $medical_records->diagnosa = $request->diagnosa;
+      $medical_records->id_diagnosa = $request->id_diagnosa;
       $medical_records->keluhan = $request->keluhan;
       $medical_records->tgl_periksa = $request->tgl_periksa;
       $medical_records->ket = $request->ket;
@@ -121,6 +123,7 @@ class Medical_recordController extends Controller
 
       $medical_records->save();
       $medical_records->medicines()->sync($request->medicines);
+      $medical_records->treatments()->sync($request->treatments);
 
       return redirect('medical_record')->with('pesan', 'Data berhasil di update');
     }
@@ -136,6 +139,7 @@ class Medical_recordController extends Controller
         $medical_records = Medical_record::find($request->id_mr);
         $medical_records->delete();
         $medical_records->medicines()->sync($request->medicines, false);
+        $medical_records->treatments()->sync($request->treatments, false);
 
         return back()->with('pesan', 'Data berhasil dihapus');
     }

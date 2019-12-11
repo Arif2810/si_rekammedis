@@ -19,7 +19,7 @@ class PatientController extends Controller
      */
     public function index(){
         
-        $patients = Patient::get(); 
+        $patients = Patient::orderBy('id_pasien', 'DESC')->get(); 
         return view('nurul_nabawi.patient.index', ['patients'=>$patients]);
     }
 
