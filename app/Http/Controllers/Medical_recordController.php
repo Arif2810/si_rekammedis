@@ -13,6 +13,7 @@ use App\Diagnosis;
 use App\Treatment;
 use App\Medical_record_medicine;
 use App\Medical_record_treatment;
+use File;
 
 class Medical_recordController extends Controller
 {
@@ -51,8 +52,12 @@ class Medical_recordController extends Controller
     public function store(Request $request){
 
         // insert data
-        $medical_records = new Medical_record;
+        $this->validate($request, [
+          'file_1' => 'image|mimes:jpg,jpeg,png,JPG,JPEG,PNG,pdf,PDF|max:2000',
+          'file_2' => 'image|mimes:jpg,jpeg,png,JPG,JPEG,PNG,pdf,PDF|max:2000',
+        ]);
 
+        $medical_records = new Medical_record;
         $medical_records->resep = $request->resep;
         $medical_records->id_pasien = $request->id_pasien;
         $medical_records->id_diagnosa = $request->id_diagnosa;
@@ -61,6 +66,14 @@ class Medical_recordController extends Controller
         $medical_records->ket = $request->ket;
         $medical_records->riwayat = $request->riwayat;
         $medical_records->check = $request->check;
+
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $fileName = time().'.'.$file->getClientOriginalExtension();
+            $destinationPath = public_path('/image');
+            $file->move($destinationPath, $fileName);
+            $medical_records->file = $fileName;
+        }
 
         $medical_records->save();
         $medical_records->medicines()->sync($request->medicines, false);
@@ -120,6 +133,13 @@ class Medical_recordController extends Controller
       $medical_records->riwayat = $request->riwayat;
       $medical_records->check = $request->check;
 
+      if($request->hasFile('image')){
+            $file = $request->file('image');
+            $fileName = time().'.'.$file->getClientOriginalExtension();
+            $destinationPath = public_path('/image');
+            $file->move($destinationPath, $fileName);
+            $medical_records->image = $fileName;
+        }
 
       $medical_records->save();
       $medical_records->medicines()->sync($request->medicines);
@@ -137,6 +157,7 @@ class Medical_recordController extends Controller
     public function destroy(Request $request){
 
         $medical_records = Medical_record::find($request->id_mr);
+        File::delete('image/'.$medical_records->image);
         $medical_records->delete();
         $medical_records->medicines()->sync($request->medicines, false);
         $medical_records->treatments()->sync($request->treatments, false);

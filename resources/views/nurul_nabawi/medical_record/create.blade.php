@@ -40,7 +40,7 @@
 						<div class="box-body">
 							@include('nurul_nabawi/validation')
 							@include('nurul_nabawi/notification')
-							<form action="{{ url('/medical_record') }}" method="post">
+							<form action="{{ url('/medical_record') }}" method="post" enctype="multipart/form-data">
 
 								<div class="row">
 									<div class="col-xs-6">
@@ -115,14 +115,19 @@
 								</div>
 
 								<div class="row">
-									<div class="col-xs-12">
+									<div class="col-xs-6">
 										<div class="form-group">
-											<input class="btn btn-primary" type="submit" name="submit" value="Tambahkan">
-											{{csrf_field()}}
-											<input type="reset" class="btn btn-danger" value="Reset">
-										</div>
+											<label>Upload File</label>
+								            <input type="file" name="image" value="" class="form-control">
+							            </div>
 									</div>
 								</div>
+
+									<div class="form-group">
+										<input class="btn btn-primary" type="submit" name="submit" value="Tambahkan">
+										{{csrf_field()}}
+										<input type="reset" class="btn btn-danger" value="Reset">
+									</div>
 
 							</form>
 						</div>

@@ -3,6 +3,14 @@
 <head>
 	@include('templates.head')
 	<title>Edit Rekam Medis</title>
+
+	<style type="text/css">
+		.content img{
+			width: 80px;
+			margin-bottom: 5px;
+		}
+	</style>
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 	<div class="wrapper">
@@ -87,6 +95,16 @@
 											{{ Form::label ('id_tindakan', "Tindakan") }}
 											{{ Form::select('treatments[]', \App\Treatment::pluck('nama_tindakan', 'id_tindakan'), NULL, ['class'=>'form-control', 'multiple'=>'multiple']) }}
 										</div>
+				            		</div>
+				            	</div>
+
+				            	<div class="row">
+				            		<div class="col-xs-6">
+				            			<div class="form-group">
+										<label>File</label><br>
+										<img src="{{asset('image/'.$medical_records->image)}}" alt="gambar">
+										<input type="file" name="image" value="{{ $medical_records->file }}" class="form-control">
+									</div>
 				            		</div>
 				            	</div>
 

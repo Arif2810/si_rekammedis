@@ -97,6 +97,12 @@
                       </ol>
                     </td>                                                     
                   </tr>
+                  <tr>
+                    <th style="vertical-align: middle;">File</th>
+                    <td>
+                      <img src="{{asset('image/'.$medical_records->image)}}" style="width: 40%;margin-bottom: 10px;">
+                    </td>
+                  </tr>
                 </thead>
               </table><br>
             </div>
