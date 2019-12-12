@@ -47,7 +47,7 @@
 				              <h5 class="box-title">Edit data rekam medis pasien klinik Nurul Nabawi Al-Kautsar</h5>
 				            </div>
 				            <div class="box-body">
-				            	{!! Form::model($medical_records,['route'=>['medical_record.update',$medical_records->id_mr],'method'=>'PUT']) !!}
+				            	{!! Form::model($medical_records,['route'=>['medical_record.update',$medical_records->id_mr],'method'=>'PUT', 'enctype'=>'multipart/form-data']) !!}
 
 				            	<div class="row">
 				            		<div class="col-xs-6">
@@ -103,7 +103,7 @@
 				            			<div class="form-group">
 										<label>File</label><br>
 										<img src="{{asset('image/'.$medical_records->image)}}" alt="gambar">
-										<input type="file" name="image" value="{{ $medical_records->file }}" class="form-control">
+										<input type="file" name="image" value="{{ $medical_records->image }}" class="form-control">
 									</div>
 				            		</div>
 				            	</div>

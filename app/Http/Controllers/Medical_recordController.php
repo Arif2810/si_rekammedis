@@ -53,8 +53,7 @@ class Medical_recordController extends Controller
 
         // insert data
         $this->validate($request, [
-          'file_1' => 'image|mimes:jpg,jpeg,png,JPG,JPEG,PNG,pdf,PDF|max:2000',
-          'file_2' => 'image|mimes:jpg,jpeg,png,JPG,JPEG,PNG,pdf,PDF|max:2000',
+          'image' => 'image|mimes:jpg,jpeg,png,JPG,JPEG,PNG|max:2000',
         ]);
 
         $medical_records = new Medical_record;
@@ -72,7 +71,7 @@ class Medical_recordController extends Controller
             $fileName = time().'.'.$file->getClientOriginalExtension();
             $destinationPath = public_path('/image');
             $file->move($destinationPath, $fileName);
-            $medical_records->file = $fileName;
+            $medical_records->image = $fileName;
         }
 
         $medical_records->save();
