@@ -44,6 +44,10 @@ class PatientController extends Controller
      */
     public function store(Request $request){
 
+        $this->validate($request, [
+            'nip' => 'required|unique:patients|min:8|max:8',
+        ]);
+
         $patients = new Patient;
         $patients->id_pasien   = $request->id_pasien;
         $patients->nip         = $request->nip;
@@ -95,15 +99,19 @@ class PatientController extends Controller
      */
     public function update(Request $request, $id_pasien){
 
-        // $this->validate($request, [
-        //     'nip' => 'required',
-        //     'nama_pasien' => 'required',
-        //     'jk' => 'required',
-        //     'tgl_lahir' => 'required',
-        //     'tgl_daftar' => 'required',
-        //     'agama' => 'required',
-        //     'alamat' => 'required',
-        // ]);
+        $this->validate($request, [
+            'nip' => 'required|unique:patients|min:8|max:8',
+        ]);
+
+        $this->validate($request, [
+            'nip' => 'required|unique:patients|min:8|max:8',
+            'nama_pasien' => 'required',
+            'jk' => 'required',
+            'tgl_lahir' => 'required',
+            'tgl_daftar' => 'required',
+            'agama' => 'required',
+            'alamat' => 'required',
+        ]);
         
         $patients = Patient::find($id_pasien);
         $patients->nip         = $request->nip;

@@ -42,6 +42,7 @@
             <div class="box-body">
               <div>
                 <a href="{{ url('/medical_record') }}"> <button class="btn btn-primary btn-sm"><i class="#"></i> Kembali</button></a>
+                <a href="{{ route('medical_record.cetak') }}"> <button class="btn btn-danger btn-sm"><i class="fa fa-print"></i> Cetak PDF</button></a>
               </div><br>
               <table class="table table-bordered table-striped">
                 <thead>

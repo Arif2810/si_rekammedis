@@ -43,7 +43,7 @@
 					            	@include('nurul_nabawi/notification')
 					            	<form action="{{ url('/patient') }}" method="post">
 					            		<div>
-											<label>NIP</label>
+											<label>NIP <small style="color: salmon"> format NIP tt/bb/hh/xx(nomor urut)</small></label>
 											<input required="" class="form-control" type="text" name="nip">
 										</div><br>
 										<div>

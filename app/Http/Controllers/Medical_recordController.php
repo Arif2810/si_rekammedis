@@ -14,6 +14,7 @@ use App\Treatment;
 use App\Medical_record_medicine;
 use App\Medical_record_treatment;
 use File;
+use Fpdf;
 
 class Medical_recordController extends Controller
 {
@@ -163,4 +164,38 @@ class Medical_recordController extends Controller
 
         return back()->with('pesan', 'Data berhasil dihapus');
     }
+
+    public function cetak(){
+
+        $pdf = new Fpdf("L","cm","A4");
+        $pdf::AddPage();
+        $pdf::SetFont('Arial', 'B', 18);
+        $pdf::Cell(185,7,'Laporan Rekam Medis',0,1,'C');
+        $pdf::SetFont('Arial', '', 12);
+        $pdf::Cell(185,5,'Klinik Nurul Nabawi | Al-Kautsar',0,1,'C');
+        $pdf::SetFont('Arial', '', 12);
+        $pdf::Cell(185,5,"Telpon : 085365856848 ",0,1,'C');
+        $pdf::Line(10,30,190,30);
+        $pdf::Line(10,31,190,31);
+        $pdf::Cell(30,10,'',0,1);
+        $pdf::SetFont('Arial', 'B', 14);
+        $pdf::Cell(30,10,'',0,1);
+        $pdf::Cell(60,7,'Tanggal Periksa',1,0);
+        $pdf::Cell(25,7,'Qty',1,0);
+        $pdf::Cell(40,7,'Harga Tiket',1,0);
+        $pdf::Cell(38,7,'Subtotal',1,0);
+        $pdf::Cell(30,7,'Tanggal',1,1);
+        $pdf::Cell(60,8,'Tanggal Periksa',1,0);
+        $pdf::Cell(25,8,'Qty',1,0);
+        $pdf::Cell(40,8,'Harga Tiket',1,0);
+        $pdf::Cell(38,8,'Subtotal',1,0);
+        $pdf::Cell(30,8,'Tanggal',1,1);
+        $medical_records=Medical_record::get();
+        
+
+        $pdf::Output();
+        exit;
+    }
+
+    
 }
