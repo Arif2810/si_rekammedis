@@ -3,6 +3,15 @@
 <head>
 	@include('templates.head')
   <title>Halaman Pasien</title>
+  <style type="text/css">
+    @media print{
+      .tambah{
+        display: none;
+      }
+      
+    }
+  </style>
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -41,7 +50,7 @@
             <div class="box-body">
               @include('nurul_nabawi/notification')
               <div>
-                <a href="{{ route('patient.create') }}"> <button class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-plus"></i> Tambah Pasien</button></a>
+                <a class="tambah" href="{{ route('patient.create') }}"> <button class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-plus"></i> Tambah Pasien</button></a>
               </div><br>
               <table id="example1" class="table table-bordered table-hover">
                 <thead>
@@ -55,7 +64,7 @@
                     <th>Tgl Daftar</th>
                     <th>Agama</th>
                     <th>Alamat</th>
-                    <th>Action</th>               
+                    <th class="tambah">Action</th>               
                   </tr>
                 </thead>
                 <tbody>
@@ -69,7 +78,7 @@
                     <td>{{ $patients->tgl_daftar }}</td>
                     <td>{{ $patients->agamas->nama_agama }}</td>
                     <td>{{ $patients->alamat }}</td>
-                    <td>                
+                    <td class="tambah">                
                       <a href="patient/{{$patients->id_pasien}}/show"><button class="btn btn-primary btn-xs">Detail</button></a>
                       <a href="patient/{{$patients->id_pasien}}/edit"><button class="btn btn-warning btn-xs">Edit</button></a>
                       <button class="btn btn-danger btn-xs" data-delid={{$patients->id_pasien}} data-toggle="modal" data-target="#delete"><i class="glyphicon glyphicon-trash"></i> Hapus</button>

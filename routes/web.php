@@ -16,7 +16,7 @@ Route::group(['middleware'=>'auth'], function(){
 	Route::resource('patient', 'PatientController');
 	Route::get('/patient/{id_pasien}/show', 'PatientController@show');
 	//=========================================================================
-	Route::get('/medical_record/pdf', 'Medical_recordController@cetak')->name('medical_record.cetak');
+	// Route::get('/medical_record/pdf', 'Medical_recordController@cetak')->name('medical_record.cetak');
 	Route::resource('medical_record', 'Medical_recordController');
 	Route::get('/medical_record/{id_mr}/show', 'Medical_recordController@show');
 	// Route::get('/medical_record', 'Medical_recordController@index')->name('medical_record.index');

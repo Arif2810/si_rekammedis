@@ -3,6 +3,14 @@
 <head>
 	@include('templates.head')
   <title>Detail Data Pasien</title>
+  <style type="text/css">
+    @media print{
+      .print{
+        display: none;
+      }
+      
+    }
+  </style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -41,7 +49,7 @@
             <!-- /.box-header -->
             <div class="box-body">
               <div>
-                <a href="{{ url('/patient') }}"> <button class="btn btn-primary btn-sm"><i class="#"></i> Kembali</button></a>
+                <a class="print" href="{{ url('/patient') }}"> <button class="btn btn-primary btn-sm"><i class="#"></i> Kembali</button></a>
               </div><br>
               <table class="table table-bordered table-striped">
                 <thead>
