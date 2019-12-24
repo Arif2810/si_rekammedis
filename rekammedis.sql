@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 11, 2019 at 03:43 PM
+-- Generation Time: Dec 24, 2019 at 06:58 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.1.24
 
@@ -109,6 +109,7 @@ CREATE TABLE `medical_records` (
   `keluhan` varchar(300) NOT NULL,
   `tgl_periksa` date DEFAULT NULL,
   `ket` varchar(300) NOT NULL,
+  `image` varchar(100) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -117,9 +118,11 @@ CREATE TABLE `medical_records` (
 -- Dumping data for table `medical_records`
 --
 
-INSERT INTO `medical_records` (`id_mr`, `resep`, `id_user`, `id_pasien`, `riwayat`, `check`, `id_diagnosa`, `keluhan`, `tgl_periksa`, `ket`, `created_at`, `updated_at`) VALUES
-(12, '3 kali sehari', NULL, 6, 'penyakit A', 'periksa tensi,', 1, 'Keluhan 1, keluhan 2', '2019-12-11', 'banyak istirahat', '2019-12-11 06:41:48', '2019-12-11 06:41:48'),
-(14, '3 kali sehari', NULL, 8, 'penyakit C', 'cek gula darah', 3, 'keluhan 1, keluhan 2', '2019-12-11', 'banyak minum air putih', '2019-12-11 14:08:14', '2019-12-11 14:08:14');
+INSERT INTO `medical_records` (`id_mr`, `resep`, `id_user`, `id_pasien`, `riwayat`, `check`, `id_diagnosa`, `keluhan`, `tgl_periksa`, `ket`, `image`, `created_at`, `updated_at`) VALUES
+(12, '3 kali sehari', NULL, 6, 'penyakit A', 'periksa tensi,', 1, 'Keluhan 1, keluhan 2', '2019-12-11', 'banyak istirahat', '', '2019-12-11 06:41:48', '2019-12-11 06:41:48'),
+(14, '3 kali sehari', NULL, 8, 'penyakit C', 'cek gula darah', 3, 'keluhan 1, keluhan 2', '2019-12-11', 'banyak minum air putih', '', '2019-12-11 14:08:14', '2019-12-11 14:08:14'),
+(15, '3 kali sehari', NULL, 9, 'penyakit D', 'periksaan 1', 4, 'keluhan 1', '2019-12-12', 'keterangan', '1576132905.jpg', '2019-12-12 06:41:45', '2019-12-12 06:41:45'),
+(16, '3 kali sehari', NULL, 9, 'penyakit D', 'pemeriksaan 1', 4, 'keluhan 1', '2019-12-12', 'banyak istirahat', '1576144552.jpg', '2019-12-12 09:55:00', '2019-12-12 09:55:52');
 
 -- --------------------------------------------------------
 
@@ -140,7 +143,11 @@ INSERT INTO `medical_record_medicine` (`id_mr`, `id_obat`) VALUES
 (12, 1),
 (12, 2),
 (14, 2),
-(14, 5);
+(14, 5),
+(15, 1),
+(15, 5),
+(16, 2),
+(16, 5);
 
 -- --------------------------------------------------------
 
@@ -160,7 +167,11 @@ CREATE TABLE `medical_record_treatment` (
 INSERT INTO `medical_record_treatment` (`id_mr`, `id_tindakan`) VALUES
 (14, 8),
 (14, 9),
-(14, 10);
+(14, 10),
+(15, 8),
+(15, 9),
+(16, 8),
+(16, 10);
 
 -- --------------------------------------------------------
 
@@ -440,7 +451,7 @@ ALTER TABLE `genders`
 -- AUTO_INCREMENT for table `medical_records`
 --
 ALTER TABLE `medical_records`
-  MODIFY `id_mr` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_mr` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `medicines`
@@ -488,14 +499,14 @@ ALTER TABLE `medical_records`
 --
 ALTER TABLE `medical_record_medicine`
   ADD CONSTRAINT `medical_record_medicine_ibfk_1` FOREIGN KEY (`id_mr`) REFERENCES `medical_records` (`id_mr`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `medical_record_medicine_ibfk_2` FOREIGN KEY (`id_obat`) REFERENCES `medicines` (`id_obat`);
+  ADD CONSTRAINT `medical_record_medicine_ibfk_2` FOREIGN KEY (`id_obat`) REFERENCES `medicines` (`id_obat`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `medical_record_treatment`
 --
 ALTER TABLE `medical_record_treatment`
   ADD CONSTRAINT `medical_record_treatment_ibfk_1` FOREIGN KEY (`id_tindakan`) REFERENCES `treatments` (`id_tindakan`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `medical_record_treatment_ibfk_2` FOREIGN KEY (`id_mr`) REFERENCES `medical_records` (`id_mr`);
+  ADD CONSTRAINT `medical_record_treatment_ibfk_2` FOREIGN KEY (`id_mr`) REFERENCES `medical_records` (`id_mr`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `patients`
