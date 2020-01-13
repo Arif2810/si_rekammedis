@@ -92,7 +92,7 @@
 											?>
 											<label>Hak akses</label>
 											<select class="form-control{{ $errors->has('akses') ? ' has-error' : '' }}" name="akses" required="">
-												<option value=""{{ $val==""?'selected':'' }}>-- Pilih hak akses sebagai : --</option>
+												<option value="" {{ $val==""?'selected':'' }}>-- Pilih hak akses sebagai : --</option>
 												<option value="operator" {{ $val=="operator"?'selected':'' }}>Operator</option>
 												<option value="admin" {{ $val=="admin"?'selected':'' }}>Administrator</option>
 											</select>
