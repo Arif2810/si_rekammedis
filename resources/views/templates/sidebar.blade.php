@@ -53,7 +53,7 @@
           <li><a href="{{ route('gender.index') }}"><i class="fa fa-circle-o"></i> Gender</a></li>
         </ul>
       </li>
-      @endif
+      
 
       <li class="treeview">
         <a href="#">
@@ -66,6 +66,8 @@
           <li><a href="{{ route('medicine.index') }}"><i class="fa fa-circle-o"></i> Data Obat</a></li>
         </ul>
       </li>
+      @endif
+
       <li>
         <a href="https://webprogrammingumri.github.io/">
           <i class="glyphicon glyphicon-info-sign"></i> <span>About Klinik</span>

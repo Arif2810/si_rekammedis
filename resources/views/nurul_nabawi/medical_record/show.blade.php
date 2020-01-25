@@ -57,6 +57,10 @@
 		              	<td>{{ $medical_records->tgl_periksa }}</td>                                  
                   </tr>
                   <tr>
+                    <th class="col-md-2">NIP</th>
+                    <td>  {{ $medical_records->patients->nip }}</td>                                  
+                  </tr>
+                  <tr>
                   	<th class="col-md-2">Nama Pasien</th>
                   	<td>  {{ $medical_records->patients->nama_pasien }}</td>                                  
                   </tr>

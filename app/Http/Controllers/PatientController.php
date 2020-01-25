@@ -101,10 +101,6 @@ class PatientController extends Controller
 
         $this->validate($request, [
             'nip' => 'required|unique:patients|min:8|max:8',
-        ]);
-
-        $this->validate($request, [
-            'nip' => 'required|unique:patients|min:8|max:8',
             'nama_pasien' => 'required',
             'jk' => 'required',
             'tgl_lahir' => 'required',

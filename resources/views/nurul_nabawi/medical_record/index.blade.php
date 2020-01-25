@@ -72,7 +72,9 @@
                     <td>
                       <a href="medical_record/{{$medical_records->id_mr}}/show"><button class="btn btn-primary btn-xs">Detail</button></a>
                       <a href="{{ route('medical_record.edit', $medical_records->id_mr) }}"><button class="btn btn-warning btn-xs">Edit</button></a>
+                      @if(Auth::user()->akses == 'admin')
                       <button class="btn btn-danger btn-xs" data-delid={{$medical_records->id_mr}} data-toggle="modal" data-target="#delete"><i class="glyphicon glyphicon-trash"></i> Hapus</button>
+                      @endif
                     </td>
                   </tr>
                   @endforeach
