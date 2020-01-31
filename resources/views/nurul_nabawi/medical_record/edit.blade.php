@@ -73,33 +73,37 @@
 											<textarea class="form-control" name="check" id="check" cols="80" rows="3">{{ $medical_records->check }}</textarea>
 										</div>
 				            		</div>
-
-				            		<div class="col-xs-6">
-				            			<div class="form-group">
-											<label>Diagnosa</label>
-											{{ Form::select('id_diagnosa', \App\Diagnosis::pluck('nama_diagnosa', 'id_diagnosa'), NULL, ['class'=>'form-control']) }}
-										</div>					            		
-										<div class="form-group">
-											{{ Form::label ('id_obat', "Obat") }}
-											{{ Form::select('medicines[]', \App\Medicine::pluck('nama_obat', 'id_obat'), NULL, ['class'=>'form-control', 'multiple'=>'multiple']) }}						
-										</div>
-										<div class="form-group">
-											<label for="resep">Resep</label>
-											<textarea class="form-control" name="resep" id="resep" cols="80" rows="3">{{ $medical_records->resep }}</textarea>
-										</div>							
-										<div class="form-group">
-											<label for="ket">Keterangan</label>
-											<textarea class="form-control" name="ket" id="ket" cols="80" rows="3">{{ $medical_records->ket }}</textarea>
-										</div>
-										<div class="form-group">
-											{{ Form::label ('id_tindakan', "Tindakan") }}
-											{{ Form::select('treatments[]', \App\Treatment::pluck('nama_tindakan', 'id_tindakan'), NULL, ['class'=>'form-control', 'multiple'=>'multiple']) }}
-										</div>
-				            		</div>
+				            		@if(Auth::user()->akses == 'admin')
+					            		<div class="col-xs-6">								            		
+											<div class="form-group">
+												{{ Form::label ('id_obat', "Obat") }}
+												{{ Form::select('medicines[]', \App\Medicine::pluck('nama_obat', 'id_obat'), NULL, ['class'=>'form-control', 'multiple'=>'multiple']) }}						
+											</div>
+											<div class="form-group">
+												<label for="resep">Resep</label>
+												<textarea class="form-control" name="resep" id="resep" cols="80" rows="3">{{ $medical_records->resep }}</textarea>
+											</div>							
+											<div class="form-group">
+												<label for="ket">Keterangan</label>
+												<textarea class="form-control" name="ket" id="ket" cols="80" rows="3">{{ $medical_records->ket }}</textarea>
+											</div>
+											<div class="form-group">
+												{{ Form::label ('id_tindakan', "Tindakan") }}
+												{{ Form::select('treatments[]', \App\Treatment::pluck('nama_tindakan', 'id_tindakan'), NULL, ['class'=>'form-control', 'multiple'=>'multiple']) }}
+											</div>
+					            		</div>
+				            		@endif
 				            	</div>
 
 				            	<div class="row">
 				            		<div class="col-xs-6">
+				            			<div class="form-group">
+											<label>Diagnosa</label>
+											{{ Form::select('id_diagnosa', \App\Diagnosis::pluck('nama_diagnosa', 'id_diagnosa'), NULL, ['class'=>'form-control']) }}
+											@if(Auth::user()->akses !== 'admin')
+												<small style="color: salmon;"><em>pilih</em> "Tidak ada"!</small>
+											@endif
+										</div>
 				            			<div class="form-group">
 										<label>File</label><br>
 										<img src="{{asset('image/'.$medical_records->image)}}" alt="gambar">

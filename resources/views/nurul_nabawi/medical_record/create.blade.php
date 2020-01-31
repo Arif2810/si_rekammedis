@@ -69,11 +69,40 @@
 										<div class="form-group">
 											<label for="check">Pemeriksaan</label>
 											<textarea class="form-control" type="text" name="check" id="check" cols="80" rows="3"></textarea>
-										</div>
-										
-										
+										</div>									
 									</div>
 
+									@if(Auth::user()->akses == 'admin')
+									<div class="col-xs-6">									
+										<div class="form-group">
+											<label for="tindakan">Tindakan</label>
+											<select multiple="multiple" size="3" class="form-control" name="treatments[]" id="tindakan">
+												@foreach($treatments as $treatment)
+												<option value="{{$treatment->id_tindakan}}">{{$treatment->nama_tindakan}}</option>
+												@endforeach
+											</select>
+										</div>
+										<div class="form-group">
+											<label for="obat">Obat</label>
+											<select multiple="multiple" size="3" class="form-control" name="medicines[]" id="obat">
+												@foreach($medicines as $medicine)
+												<option value="{{$medicine->id_obat}}">{{$medicine->nama_obat}}</option>
+												@endforeach
+											</select>
+										</div>
+										<div class="form-group">
+											<label for="resep">Resep</label>
+											<textarea class="form-control" type="text" name="resep" id="resep" cols="80" rows="3"></textarea>
+										</div>
+										<div class="form-group">
+											<label for="ket">Keterangan</label>
+											<textarea class="form-control" type="text" name="ket" id="ket" cols="80" rows="3"></textarea>
+										</div>										
+									</div>
+									@endif
+								</div>
+
+								<div class="row">
 									<div class="col-xs-6">
 										<div class="form-group">
 											<label for="diagnosa">Diagnosa</label>
@@ -83,39 +112,10 @@
 												<option value="{{$diagnosis->id_diagnosa}}">{{$diagnosis->nama_diagnosa}}</option>
 												@endforeach
 											</select>
+											@if(Auth::user()->akses !== 'admin')
+												<small style="color: salmon;"><i>pilih</i> "Tidak ada"!</small>
+											@endif
 										</div>
-										
-										<div class="form-group">
-											<label for="tindakan">Tindakan</label>
-											<select multiple="multiple" size="3" class="form-control" name="treatments[]" id="tindakan">
-												@foreach($treatments as $treatment)
-												<option value="{{$treatment->id_tindakan}}">{{$treatment->nama_tindakan}}</option>
-												@endforeach
-											</select>
-										</div><br>
-										<div>
-											<label for="obat">Obat</label>
-											<select multiple="multiple" size="3" class="form-control" name="medicines[]" id="obat">
-												@foreach($medicines as $medicine)
-												<option value="{{$medicine->id_obat}}">{{$medicine->nama_obat}}</option>
-												@endforeach
-											</select>
-										</div><br>
-										<div>
-											<label for="resep">Resep</label>
-											<textarea class="form-control" type="text" name="resep" id="resep" cols="80" rows="3"></textarea>
-										</div><br>
-										<div>
-											<label for="ket">Keterangan</label>
-											<textarea class="form-control" type="text" name="ket" id="ket" cols="80" rows="3"></textarea>
-										</div><br>
-										
-
-									</div>
-								</div>
-
-								<div class="row">
-									<div class="col-xs-6">
 										<div class="form-group">
 											<label>Upload File</label>
 								            <input type="file" name="image" value="" class="form-control">
