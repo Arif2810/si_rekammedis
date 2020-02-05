@@ -44,7 +44,7 @@
 					            	<form action="{{ url('/patient') }}" method="post">
 					            		<div>
 											<label>NIP <small style="color: salmon"> format NIP tt/bb/hh/xx(nomor urut)</small></label>
-											<input required="" class="form-control" type="text" name="nip">
+											<input required="" class="form-control" type="number" name="nip">
 										</div><br>
 										<div>
 											<label>Nama</label>
@@ -85,7 +85,7 @@
 										</div><br>
 										<div>
 											<label>No Telepon</label>
-											<input class="form-control" type="text" name="telp">
+											<input class="form-control" type="number" name="telp">
 										</div><br><br>
 										<div>
 											<input class="btn btn-primary" type="submit" name="submit" value="Tambahkan">

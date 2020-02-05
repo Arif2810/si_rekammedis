@@ -50,11 +50,11 @@
 											<input required="" class="form-control" type="date" name="tgl_periksa" id="tgl_periksa" value="<?=date('Y-m-d')?>">
 										</div><br>
 										<div>
-											<label>Nama Pasien</label>
-											<select required="" class="form-control" name="id_pasien">
-												<option>- Pilih Pasien -</option>
-												@foreach($patients as $patients)
-												<option value="{{$patients->id_pasien}}">{{$patients->nama_pasien}}</option>
+											<label for="pasien">Nama Pasien</label>
+											<select required="" class="form-control" name="id_pasien" id="pasien">
+												<option></option>
+												@foreach($patients as $patient)
+												<option value="{{$patient->id_pasien}}">{{$patient->nama_pasien}}</option>
 												@endforeach
 											</select>
 										</div><br>
@@ -77,6 +77,7 @@
 										<div class="form-group">
 											<label for="tindakan">Tindakan</label>
 											<select multiple="multiple" size="3" class="form-control" name="treatments[]" id="tindakan">
+												<option></option>
 												@foreach($treatments as $treatment)
 												<option value="{{$treatment->id_tindakan}}">{{$treatment->nama_tindakan}}</option>
 												@endforeach
@@ -85,6 +86,7 @@
 										<div class="form-group">
 											<label for="obat">Obat</label>
 											<select multiple="multiple" size="3" class="form-control" name="medicines[]" id="obat">
+												<option></option>
 												@foreach($medicines as $medicine)
 												<option value="{{$medicine->id_obat}}">{{$medicine->nama_obat}}</option>
 												@endforeach
@@ -107,7 +109,7 @@
 										<div class="form-group">
 											<label for="diagnosa">Diagnosa</label>
 											<select required="" class="form-control" name="id_diagnosa" id="diagnosa">
-												<option>- Diagnosa -</option>
+												<option></option>
 												@foreach($diagnoses as $diagnosis)
 												<option value="{{$diagnosis->id_diagnosa}}">{{$diagnosis->nama_diagnosa}}</option>
 												@endforeach
@@ -119,6 +121,7 @@
 										<div class="form-group">
 											<label>Upload File</label>
 								            <input type="file" name="image" value="" class="form-control">
+								            <small style="color: salmon">file yang di upload berformat jpg, jpeg, png</small>
 							            </div>
 									</div>
 								</div>
@@ -147,6 +150,24 @@
 			@include('templates.control_sidebar')
 		</aside>
 	</div>
-@include('templates.scripts')
+
+	@include('templates.scripts')
+
+	<script type="text/javascript">
+	    $("#pasien").select2({
+	    	placeholder:'Pilih Pasien'
+	    });
+	    $("#diagnosa").select2({
+	    	placeholder:'Diagnosa'
+	    });
+	    $("#obat").select2({
+	    	placeholder:'Pilih Obat'
+	    });
+	    $("#tindakan").select2({
+	    	placeholder:'Tindakan'
+	    });
+	</script>
+
+	
 </body>
 </html>
