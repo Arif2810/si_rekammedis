@@ -37,3 +37,19 @@
 <script src="{{ url('assets/dist/js/demo.js') }}"></script>
 
 <script src="{{ url('js/select2.min.js') }}"></script>
+
+<!-- scripts untuk select2 -->
+<script type="text/javascript">
+	    $("#pasien").select2({
+	    	placeholder:'Pilih Pasien'
+	    });
+	    $("#diagnosa").select2({
+	    	placeholder:'Diagnosa'
+	    });
+	    $("#obat").select2({
+	    	placeholder:'Pilih Obat'
+	    });
+	    $("#tindakan").select2({
+	    	placeholder:'Tindakan'
+	    });
+	</script>

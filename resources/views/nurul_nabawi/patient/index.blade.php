@@ -62,8 +62,6 @@
                     <th>Jenis Kelamin</th>
                     <th>Tgl Lahir</th>
                     <th>Tgl Daftar</th>
-                    <th>Agama</th>
-                    <th>Alamat</th>
                     <th class="tambah">Action</th>               
                   </tr>
                 </thead>
@@ -76,8 +74,6 @@
                     <td>{{ $patients->genders->nama_gender }}</td>
                     <td>{{ $patients->tgl_lahir }}</td>
                     <td>{{ $patients->tgl_daftar }}</td>
-                    <td>{{ $patients->agamas->nama_agama }}</td>
-                    <td>{{ $patients->alamat }}</td>
                     <td class="tambah">                
                       <a href="patient/{{$patients->id_pasien}}/show"><button class="btn btn-primary btn-xs">Detail</button></a>
                       <a href="patient/{{$patients->id_pasien}}/edit"><button class="btn btn-warning btn-xs">Edit</button></a>

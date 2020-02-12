@@ -55,6 +55,9 @@ class Medical_recordController extends Controller
         // insert data
         $this->validate($request, [
           'image' => 'image|mimes:jpg,jpeg,png,JPG,JPEG,PNG|max:2000',
+          'keluhan' => 'required',
+          'check' => 'required',
+          'riwayat' => 'required',
         ]);
 
         $medical_records = new Medical_record;

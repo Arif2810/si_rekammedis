@@ -43,8 +43,8 @@
 					            	@include('nurul_nabawi/notification')
 					            	<form action="{{ url('/diagnosis') }}/{{ $diagnoses->id_diagnosa }}" method="post">
 					            		<div>
-											<label>Diagnosa</label>
-											<input class="form-control" type="text" name="nama_diagnosa" value="{{ $diagnoses->nama_diagnosa }}">
+											<label for="diagnosa">Diagnosa</label>
+											<input class="form-control" id="diagnosa" type="text" name="nama_diagnosa" value="{{ $diagnoses->nama_diagnosa }}">
 										</div><br><br>								
 										<div>
 											<input class="btn btn-primary" type="submit" name="submit" value="Simpan">
@@ -71,6 +71,6 @@
 			@include('templates.control_sidebar')
 		</aside>
 	</div>
-@include('templates.scripts')
+	@include('templates.scripts')
 </body>
 </html>

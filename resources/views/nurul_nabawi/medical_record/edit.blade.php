@@ -57,7 +57,7 @@
 										</div>
 										<div class="form-group">
 											{{ Form::label ('id_pasien', "Nama Pasien") }}
-											{{ Form::select('id_pasien', \App\Patient::pluck('nama_pasien', 'id_pasien'), NULL, ['class'=>'form-control']) }}
+											{{ Form::select('id_pasien', \App\Patient::pluck('nama_pasien', 'id_pasien'), NULL, ['class'=>'form-control', 'id'=>'pasien']) }}
 										</div>
 										<div class="form-group">
 											<label for="riwayat">Riwayat Penyakit</label>
@@ -77,7 +77,7 @@
 					            		<div class="col-xs-6">								            		
 											<div class="form-group">
 												{{ Form::label ('id_obat', "Obat") }}
-												{{ Form::select('medicines[]', \App\Medicine::pluck('nama_obat', 'id_obat'), NULL, ['class'=>'form-control', 'multiple'=>'multiple']) }}						
+												{{ Form::select('medicines[]', \App\Medicine::pluck('nama_obat', 'id_obat'), NULL, ['class'=>'form-control', 'id'=>'obat', 'multiple'=>'multiple']) }}						
 											</div>
 											<div class="form-group">
 												<label for="resep">Resep</label>
@@ -89,7 +89,7 @@
 											</div>
 											<div class="form-group">
 												{{ Form::label ('id_tindakan', "Tindakan") }}
-												{{ Form::select('treatments[]', \App\Treatment::pluck('nama_tindakan', 'id_tindakan'), NULL, ['class'=>'form-control', 'multiple'=>'multiple']) }}
+												{{ Form::select('treatments[]', \App\Treatment::pluck('nama_tindakan', 'id_tindakan'), NULL, ['class'=>'form-control', 'id'=>'tindakan', 'multiple'=>'multiple']) }}
 											</div>
 					            		</div>
 				            		@endif
@@ -99,7 +99,7 @@
 				            		<div class="col-xs-6">
 				            			<div class="form-group">
 											<label>Diagnosa</label>
-											{{ Form::select('id_diagnosa', \App\Diagnosis::pluck('nama_diagnosa', 'id_diagnosa'), NULL, ['class'=>'form-control']) }}
+											{{ Form::select('id_diagnosa', \App\Diagnosis::pluck('nama_diagnosa', 'id_diagnosa'), NULL, ['class'=>'form-control', 'id'=>'diagnosa']) }}
 											@if(Auth::user()->akses !== 'admin')
 												<small style="color: salmon;"><em>pilih</em> "Tidak ada"!</small>
 											@endif
@@ -136,6 +136,7 @@
 			@include('templates.control_sidebar')
 		</aside>
 	</div>
-@include('templates.scripts')
+	@include('templates.scripts')
+
 </body>
 </html>

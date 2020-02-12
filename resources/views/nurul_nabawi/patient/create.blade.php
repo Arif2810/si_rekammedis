@@ -43,17 +43,18 @@
 					            	@include('nurul_nabawi/notification')
 					            	<form action="{{ url('/patient') }}" method="post">
 					            		<div>
-											<label>NIP <small style="color: salmon"> format NIP tt/bb/hh/xx(nomor urut)</small></label>
-											<input required="" class="form-control" type="number" name="nip">
+											<label>NIP</label>
+											<input required="" class="form-control" type="number" name="nip" value="{{ old('nip') }}">
+											<small style="color: salmon"> * format NIP tt/bb/hh/xx(nomor urut)</small>
 										</div><br>
 										<div>
 											<label>Nama</label>
-											<input required="" class="form-control" type="text" name="nama_pasien">
+											<input required="" class="form-control" type="text" name="nama_pasien" value="{{ old('nama_pasien') }}">
 										</div><br>
 										<div>
 											<label>Jenis Kelamin</label>
-											<select class="form-control" name="id_gender">
-												<option>- Jenis Kelamin -</option>
+											<select class="form-control" name="id_gender" required="">
+												<option value="">- Jenis Kelamin -</option>
 												@foreach($genders as $gender)
 												<option value="{{$gender->id_gender}}">{{$gender->nama_gender}}</option>
 												@endforeach
@@ -64,16 +65,16 @@
 										</div><br>
 										<div>
 											<label>Tanggal Lahir</label>
-											<input class="form-control" type="date" name="tgl_lahir">
+											<input class="form-control" type="date" name="tgl_lahir" value="{{ old('tgl_lahir') }}" required="">
 										</div><br>
 										<div>
 											<label>Tanggal Daftar</label>
-											<input required="" class="form-control" type="date" name="tgl_daftar" value="<?=date('Y-m-d')?>">
+											<input required="" class="form-control" type="date" name="tgl_daftar" value="{{date('Y-m-d')}}">
 										</div><br>
 										<div>
 											<label>Agama</label>
-											<select class="form-control" name="id_agama">
-												<option>- Pilih Agama -</option>
+											<select class="form-control" name="id_agama" required="">
+												<option value="">- Pilih Agama -</option>
 												@foreach($agamas as $agama)
 												<option value="{{$agama->id_agama}}">{{$agama->nama_agama}}</option>
 												@endforeach
@@ -81,11 +82,11 @@
 										</div><br>
 										<div>
 											<label>Alamat</label>
-											<textarea class="form-control" type="text" name="alamat" cols="80" rows="3"></textarea>
+											<textarea class="form-control" type="text" name="alamat" cols="80" rows="3">{{ old('alamat') }}</textarea>
 										</div><br>
 										<div>
 											<label>No Telepon</label>
-											<input class="form-control" type="number" name="telp">
+											<input class="form-control" type="number" name="telp" value="{{ old('telp') }}">
 										</div><br><br>
 										<div>
 											<input class="btn btn-primary" type="submit" name="submit" value="Tambahkan">

@@ -52,7 +52,7 @@
 										<div>
 											<label for="pasien">Nama Pasien</label>
 											<select required="" class="form-control" name="id_pasien" id="pasien">
-												<option></option>
+												<option value=""></option>
 												@foreach($patients as $patient)
 												<option value="{{$patient->id_pasien}}">{{$patient->nama_pasien}}</option>
 												@endforeach
@@ -60,15 +60,15 @@
 										</div><br>
 										<div>
 											<label for="riwayat">Riwayat Penyakit</label>
-											<textarea class="form-control" type="text" name="riwayat" id="riwayat" cols="80" rows="3"></textarea>
+											<textarea class="form-control" type="text" name="riwayat" id="riwayat" cols="80" rows="3">{{ old('riwayat') }} </textarea>
 										</div><br>
 										<div>
 											<label for="keluhan">Keluhan</label>
-											<textarea required="" class="form-control" type="text" name="keluhan" id="keluhan" cols="80" rows="3"></textarea>
+											<textarea required="" class="form-control" type="text" name="keluhan" id="keluhan" cols="80" rows="3"> {{ old('keluhan') }} </textarea>
 										</div><br>
 										<div class="form-group">
 											<label for="check">Pemeriksaan</label>
-											<textarea class="form-control" type="text" name="check" id="check" cols="80" rows="3"></textarea>
+											<textarea class="form-control" type="text" name="check" id="check" cols="80" rows="3"> {{ old('check') }} </textarea>
 										</div>									
 									</div>
 
@@ -76,8 +76,8 @@
 									<div class="col-xs-6">									
 										<div class="form-group">
 											<label for="tindakan">Tindakan</label>
-											<select multiple="multiple" size="3" class="form-control" name="treatments[]" id="tindakan">
-												<option></option>
+											<select multiple="multiple" size="3" class="form-control" name="treatments[]" id="tindakan" required="">
+												<option value=""></option>
 												@foreach($treatments as $treatment)
 												<option value="{{$treatment->id_tindakan}}">{{$treatment->nama_tindakan}}</option>
 												@endforeach
@@ -94,11 +94,11 @@
 										</div>
 										<div class="form-group">
 											<label for="resep">Resep</label>
-											<textarea class="form-control" type="text" name="resep" id="resep" cols="80" rows="3"></textarea>
+											<textarea class="form-control" type="text" name="resep" id="resep" cols="80" rows="3"> {{ old('resep') }} </textarea>
 										</div>
 										<div class="form-group">
 											<label for="ket">Keterangan</label>
-											<textarea class="form-control" type="text" name="ket" id="ket" cols="80" rows="3"></textarea>
+											<textarea class="form-control" type="text" name="ket" id="ket" cols="80" rows="3"> {{ old('ket') }} </textarea>
 										</div>										
 									</div>
 									@endif
@@ -109,7 +109,7 @@
 										<div class="form-group">
 											<label for="diagnosa">Diagnosa</label>
 											<select required="" class="form-control" name="id_diagnosa" id="diagnosa">
-												<option></option>
+												<option value=""></option>
 												@foreach($diagnoses as $diagnosis)
 												<option value="{{$diagnosis->id_diagnosa}}">{{$diagnosis->nama_diagnosa}}</option>
 												@endforeach
@@ -152,22 +152,6 @@
 	</div>
 
 	@include('templates.scripts')
-
-	<script type="text/javascript">
-	    $("#pasien").select2({
-	    	placeholder:'Pilih Pasien'
-	    });
-	    $("#diagnosa").select2({
-	    	placeholder:'Diagnosa'
-	    });
-	    $("#obat").select2({
-	    	placeholder:'Pilih Obat'
-	    });
-	    $("#tindakan").select2({
-	    	placeholder:'Tindakan'
-	    });
-	</script>
-
 	
 </body>
 </html>
