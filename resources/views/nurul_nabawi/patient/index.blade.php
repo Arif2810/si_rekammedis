@@ -75,8 +75,8 @@
                     <td>{{ $patients->tgl_lahir }}</td>
                     <td>{{ $patients->tgl_daftar }}</td>
                     <td class="tambah">                
-                      <a href="patient/{{$patients->id_pasien}}/show"><button class="btn btn-primary btn-xs">Detail</button></a>
-                      <a href="patient/{{$patients->id_pasien}}/edit"><button class="btn btn-warning btn-xs">Edit</button></a>
+                      <a href="{{ url('patient') }}/{{$patients->id_pasien}}/show"><button class="btn btn-primary btn-xs">Detail</button></a>
+                      <a href="{{ url('patient') }}/{{$patients->id_pasien}}/edit"><button class="btn btn-warning btn-xs">Edit</button></a>
                       @if(Auth::user()->akses == 'admin')
                       <button class="btn btn-danger btn-xs" data-delid={{$patients->id_pasien}} data-toggle="modal" data-target="#delete"><i class="glyphicon glyphicon-trash"></i> Hapus</button>
                       @endif

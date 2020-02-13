@@ -41,11 +41,11 @@
                     <div class="box-body">
                       @include('nurul_nabawi/validation')
                       <form action="{{ url('/treatment') }}" method="post">
-                        <div>
+                        <div class="form-group">
                           <label>Tindakan</label>
                           <input class="form-control" type="text" name="nama_tindakan">
-                        </div><br><br>
-                        <div>
+                        </div>
+                        <div class="form-group">
                           <input class="btn btn-primary" type="submit" name="submit" value="Tambahkan">
                           {{csrf_field()}}
                         </div>
@@ -84,7 +84,7 @@
                       <td>{{ $no++ }}</td>
                       <td>{{ $treatments->nama_tindakan }}</td>
                       <td>
-                        <a href="treatment/{{$treatments->id_tindakan}}/edit"><button class="btn btn-warning btn-xs">Edit</button></a>
+                        <a href="{{ url('treatment') }}/{{$treatments->id_tindakan}}/edit"><button class="btn btn-warning btn-xs">Edit</button></a>
                         <button class="btn btn-danger btn-xs" data-delid={{$treatments->id_tindakan}} data-toggle="modal" data-target="#delete"><i class="glyphicon glyphicon-trash"></i> Hapus</button>
                       </td>
                     </tr>

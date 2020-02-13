@@ -51,7 +51,7 @@ class MedicineController extends Controller
         $medicines->save();
         // dd('kesini');
 
-        return redirect('medicine/create')->with('pesan', 'Data berhasil ditambahkan');
+        return redirect('medicine')->with('pesan', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -89,7 +89,6 @@ class MedicineController extends Controller
 
         $this->validate($request, [
             'nama_obat' => 'required',
-            'deskripsi' => 'required',
         ]);
         
         $medicines = Medicine::find($id_obat);

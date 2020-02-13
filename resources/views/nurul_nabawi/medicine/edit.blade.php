@@ -30,39 +30,39 @@
 		    </section>
 
 		    <section class="content">
-		      	<div class="row">
-		        	<div class="col-xs-12">
-		          		<div class="box">
-		            		<div class="box-header">
-		            			<div class="box-header">
-					              <h5 class="box-title">Edit data obat klinik Nurul Nabawi Al-Kautsar</h5>
-					            </div>
-					            <div class="box-body">
-					            	@include('nurul_nabawi/validation')
-					            	<form action="/medicine/{{ $medicines->id_obat }}" method="post">
-					            		<div>
-											<label>Nama Obat</label>
-											<input class="form-control" type="text" name="nama_obat" value="{{ $medicines->nama_obat }}">
-										</div><br>
-										<div>
-											<label>Deskripsi</label>
-											<input class="form-control" type="text" name="deskripsi" value="{{ $medicines->deskripsi }}">
-										</div><br>
-										<div>
-											<label>Stok</label>
-											<input class="form-control" type="text" name="stok" value="{{ $medicines->stok }}">
-										</div><br><br>
-										<div>
-											<input class="btn btn-primary" type="submit" name="submit" value="Simpan">
-											<input type="reset" class="btn btn-danger" value="Reset">
-											{{csrf_field()}}
-											<input type="hidden" name="_method" value="PUT">
-										</div>
-					            	</form>
-					            </div>
-		            		</div>
-		        		</div>
-		    		</div>
+	      	<div class="row">
+	        	<div class="col-xs-12">
+          		<div class="box">
+            		<div class="box-header">
+            			<div class="box-header">
+			              <h5 class="box-title">Edit data obat klinik Nurul Nabawi Al-Kautsar</h5>
+			            </div>
+			            <div class="box-body">
+			            	@include('nurul_nabawi/validation')
+			            	<form action="{{ url('/medicine') }}/{{ $medicines->id_obat }}" method="post">
+			            		<div class="form-group">
+												<label>Nama Obat</label>
+												<input class="form-control" type="text" name="nama_obat" value="{{ $medicines->nama_obat }}">
+											</div>
+											<div class="form-group">
+												<label>Deskripsi</label>
+												<input class="form-control" type="text" name="deskripsi" value="{{ $medicines->deskripsi }}">
+											</div>
+											<div class="form-group">
+												<label>Stok</label>
+												<input class="form-control" type="number" name="stok" value="{{ $medicines->stok }}">
+											</div>
+											<div class="form-group">
+												<input class="btn btn-primary" type="submit" name="submit" value="Simpan">
+												<input type="reset" class="btn btn-danger" value="Reset">
+												{{csrf_field()}}
+												<input type="hidden" name="_method" value="PUT">
+											</div>
+			            	</form>
+			            </div>
+            		</div>
+	        		</div>
+	    		</div>
 				</div>
 			</section>
 		</div>

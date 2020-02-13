@@ -23,7 +23,7 @@
         <small>advanced tables</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="{{ url('/') }}"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Data Obat</li>
       </ol>
     </section>

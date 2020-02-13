@@ -41,11 +41,11 @@
 					            <div class="box-body">
 					            	@include('nurul_nabawi/validation')
 					            	<form action="{{ url('/treatment') }}/{{ $treatments->id_tindakan }}" method="post">
-					            		<div>
+					            		<div class="form-group">
 											<label>Tindakan</label>
 											<input class="form-control" type="text" name="nama_tindakan" value="{{ $treatments->nama_tindakan }}">
-										</div><br><br>								
-										<div>
+										</div>								
+										<div class="form-group">
 											<input class="btn btn-primary" type="submit" name="submit" value="Simpan">
 											<input type="reset" class="btn btn-danger" value="Reset">
 											{{csrf_field()}}

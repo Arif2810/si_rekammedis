@@ -47,9 +47,9 @@
 	    	placeholder:'Diagnosa'
 	    });
 	    $("#obat").select2({
-	    	placeholder:'Pilih Obat'
+	    	placeholder:'Pilih Obat ...'
 	    });
 	    $("#tindakan").select2({
-	    	placeholder:'Tindakan'
+	    	placeholder:'Pilih Tindakan ...'
 	    });
 	</script>

@@ -23,8 +23,8 @@
         <small>advanced tables</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="/medicine"> Data Obat</a></li>
+        <li><a href="{{ url('/') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="{{ url('/medicine') }}"> Data Obat</a></li>
         <li class="active">Detail data obat</li>
       </ol>
     </section>
@@ -40,7 +40,7 @@
             <!-- /.box-header -->
             <div class="box-body">
               <div>
-                <a href="/medicine"> <button class="btn btn-primary btn-sm"><i class="#"></i> Kembali</button></a>
+                <a href="{{ url('/medicine') }}"> <button class="btn btn-primary btn-sm"><i class="#"></i> Kembali</button></a>
               </div><br>
               <table class="table table-bordered table-striped">
                 <thead>

@@ -41,31 +41,29 @@
 							@include('nurul_nabawi/validation')
 							@include('nurul_nabawi/notification')
 							<form action="{{ url('/medical_record') }}" method="post" enctype="multipart/form-data">
-
 								<div class="row">
-									<div class="col-xs-6">
-										
-										<div>
+									<div class="col-xs-6">										
+										<div class="form-group">
 											<label for="tgl_periksa">Tanggal Periksa</label>
 											<input required="" class="form-control" type="date" name="tgl_periksa" id="tgl_periksa" value="<?=date('Y-m-d')?>">
-										</div><br>
-										<div>
-											<label for="pasien">Nama Pasien</label>
-											<select required="" class="form-control" name="id_pasien" id="pasien">
+										</div>
+										<div class="form-group">
+											<label for="pasien">Nama Pasien</label><br>
+											<select required="" class="form-control" name="id_pasien" id="pasien" style="width: 100%">
 												<option value=""></option>
 												@foreach($patients as $patient)
 												<option value="{{$patient->id_pasien}}">{{$patient->nama_pasien}}</option>
 												@endforeach
 											</select>
-										</div><br>
-										<div>
+										</div>
+										<div class="form-group">
 											<label for="riwayat">Riwayat Penyakit</label>
 											<textarea class="form-control" type="text" name="riwayat" id="riwayat" cols="80" rows="3">{{ old('riwayat') }} </textarea>
-										</div><br>
-										<div>
+										</div>
+										<div class="form-group">
 											<label for="keluhan">Keluhan</label>
 											<textarea required="" class="form-control" type="text" name="keluhan" id="keluhan" cols="80" rows="3"> {{ old('keluhan') }} </textarea>
-										</div><br>
+										</div>
 										<div class="form-group">
 											<label for="check">Pemeriksaan</label>
 											<textarea class="form-control" type="text" name="check" id="check" cols="80" rows="3"> {{ old('check') }} </textarea>
@@ -75,8 +73,8 @@
 									@if(Auth::user()->akses == 'admin')
 									<div class="col-xs-6">									
 										<div class="form-group">
-											<label for="tindakan">Tindakan</label>
-											<select multiple="multiple" size="3" class="form-control" name="treatments[]" id="tindakan" required="">
+											<label for="tindakan">Tindakan</label><br>
+											<select multiple="multiple" size="3" class="form-control" name="treatments[]" id="tindakan" required="" style="width: 100%">
 												<option value=""></option>
 												@foreach($treatments as $treatment)
 												<option value="{{$treatment->id_tindakan}}">{{$treatment->nama_tindakan}}</option>
@@ -84,9 +82,9 @@
 											</select>
 										</div>
 										<div class="form-group">
-											<label for="obat">Obat</label>
-											<select multiple="multiple" size="3" class="form-control" name="medicines[]" id="obat">
-												<option></option>
+											<label for="obat">Obat</label><br>
+											<select multiple="multiple" size="3" class="form-control" name="medicines[]" id="obat" style="width: 100%">
+												<option value=""></option>
 												@foreach($medicines as $medicine)
 												<option value="{{$medicine->id_obat}}">{{$medicine->nama_obat}}</option>
 												@endforeach
@@ -107,8 +105,8 @@
 								<div class="row">
 									<div class="col-xs-6">
 										<div class="form-group">
-											<label for="diagnosa">Diagnosa</label>
-											<select required="" class="form-control" name="id_diagnosa" id="diagnosa">
+											<label for="diagnosa">Diagnosa</label><br>
+											<select required="" class="form-control" name="id_diagnosa" id="diagnosa" style="width: 100%">
 												<option value=""></option>
 												@foreach($diagnoses as $diagnosis)
 												<option value="{{$diagnosis->id_diagnosa}}">{{$diagnosis->nama_diagnosa}}</option>
@@ -120,18 +118,18 @@
 										</div>
 										<div class="form-group">
 											<label>Upload File</label>
-					            <input type="file" name="image" value="" class="form-control" style="margin-bottom: 5px;">
-					            <input type="file" name="image2" value="" class="form-control">
-					            <small style="color: salmon">file yang di upload berformat jpg, jpeg, png</small>
-				            </div>
+								            <input type="file" name="image" value="" class="form-control" style="margin-bottom: 5px;">
+								            <input type="file" name="image2" value="" class="form-control">
+								            <small style="color: salmon">file yang di upload berformat pdf, jpg, jpeg, png</small>
+							            </div>
 									</div>
 								</div>
 
-									<div class="form-group">
-										<input class="btn btn-primary" type="submit" name="submit" value="Tambahkan">
-										{{csrf_field()}}
-										<input type="reset" class="btn btn-danger" value="Reset">
-									</div>
+								<div class="form-group">
+									<input class="btn btn-primary" type="submit" name="submit" value="Tambahkan">
+									{{csrf_field()}}
+									<input type="reset" class="btn btn-danger" value="Reset">
+								</div>
 
 							</form>
 						</div>

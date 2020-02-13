@@ -70,7 +70,7 @@
                     <td>{{ $users->email }}</td>
                     <td>{{ $users->akses }}</td>
                     <td>
-                      <a href="user/{{$users->id}}/edit"><button class="btn btn-warning btn-xs">Edit</button></a>
+                      <a href="{{ url('user') }}/{{$users->id}}/edit"><button class="btn btn-warning btn-xs">Edit</button></a>
                       @if( $users->id != Auth::id() )
                         <button class="btn btn-danger btn-xs" data-delid={{$users->id}} data-toggle="modal" data-target="#delete"><i class="glyphicon glyphicon-trash"></i> Hapus</button>
                       @endif

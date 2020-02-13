@@ -24,7 +24,7 @@
 		        <small>advanced tables</small>
 		      </h1>
 		      <ol class="breadcrumb">
-		        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+		        <li><a href="{{ url('/') }}"><i class="fa fa-dashboard"></i> Home</a></li>
 		        <li><a href="{{ route('gender.index') }}">Data Gender</a></li>
 		        <li class="active">Edit Data Gender</li>
 		      </ol>
@@ -42,11 +42,11 @@
 					            	@include('nurul_nabawi/validation')
 					            	@include('nurul_nabawi/notification')
 					            	<form action="/gender/{{ $genders->id_gender }}" method="post">
-					            		<div>
+					            		<div class="form-group">
 											<label>Agama</label>
 											<input class="form-control" type="text" name="nama_gender" value="{{ $genders->nama_gender }}">
-										</div><br><br>								
-										<div>
+										</div>							
+										<div class="form-group">
 											<input class="btn btn-primary" type="submit" name="submit" value="Simpan">
 											<input type="reset" class="btn btn-danger" value="Reset">
 											{{csrf_field()}}

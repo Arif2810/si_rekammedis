@@ -24,7 +24,7 @@
         <small>advanced tables</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="{{ url('/') }}"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Data Gender</li>
       </ol>
     </section>
@@ -40,13 +40,13 @@
                     </div>
                     <div class="box-body">
                       @include('nurul_nabawi/validation')
-                      <form action="/gender" method="post">
-                        <div>
+                      <form action="{{ url('/gender') }}" method="post">
+                        <div class="form-group">
                           <label>Jenis Kelamin</label>
                           <!-- <input class="form-control" type="text" name="nama_agama"> -->
                           {!!Form::text('nama_gender', null, ['class'=>'form-control'])!!}
-                        </div><br><br>
-                        <div>
+                        </div>
+                        <div class="form-group">
                           <input class="btn btn-primary" type="submit" name="submit" value="Tambahkan">
                           {{csrf_field()}}
                         </div>
@@ -83,7 +83,7 @@
                       <td>{{ $no++ }}</td>
                       <td>{{ $genders->nama_gender }}</td>
                       <td>
-                        <a href="gender/{{$genders->id_gender}}/edit"><button class="btn btn-warning btn-xs">Edit</button></a>
+                        <a href="{{ url('gender') }}/{{$genders->id_gender}}/edit"><button class="btn btn-warning btn-xs">Edit</button></a>
                         <button class="btn btn-danger btn-xs" data-delid={{$genders->id_gender}} data-toggle="modal" data-target="#delete"><i class="glyphicon glyphicon-trash"></i> Hapus</button>
                       </td>
                     </tr>

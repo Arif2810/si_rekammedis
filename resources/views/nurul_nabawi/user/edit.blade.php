@@ -111,7 +111,7 @@
 		                                    </span>
 		                                @endif
 										<!-- <input required="" class="form-control" type="password" name="password"> -->
-									</div><br>
+									</div>
 
 									<div>
 										<input class="btn btn-primary" type="submit" name="submit" value="Simpan">

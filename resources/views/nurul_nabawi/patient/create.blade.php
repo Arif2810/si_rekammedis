@@ -42,16 +42,16 @@
 					            	@include('nurul_nabawi/validation')
 					            	@include('nurul_nabawi/notification')
 					            	<form action="{{ url('/patient') }}" method="post">
-					            		<div>
+					            		<div class="form-group">
 											<label>NIP</label>
 											<input required="" class="form-control" type="number" name="nip" value="{{ old('nip') }}">
 											<small style="color: salmon"> * format NIP tt/bb/hh/xx(nomor urut)</small>
-										</div><br>
-										<div>
+										</div>
+										<div class="form-group">
 											<label>Nama</label>
 											<input required="" class="form-control" type="text" name="nama_pasien" value="{{ old('nama_pasien') }}">
-										</div><br>
-										<div>
+										</div>
+										<div class="form-group">
 											<label>Jenis Kelamin</label>
 											<select class="form-control" name="id_gender" required="">
 												<option value="">- Jenis Kelamin -</option>
@@ -62,16 +62,16 @@
 											<!-- <input required="" type="radio" name="jk" value="laki-laki" checked> Laki-laki
 											<span style="padding-left: 20px"></span>
 											<input type="radio" name="jk" value="perempuan"> Perempuan -->
-										</div><br>
-										<div>
+										</div>
+										<div class="form-group">
 											<label>Tanggal Lahir</label>
 											<input class="form-control" type="date" name="tgl_lahir" value="{{ old('tgl_lahir') }}" required="">
-										</div><br>
-										<div>
+										</div>
+										<div class="form-group">
 											<label>Tanggal Daftar</label>
 											<input required="" class="form-control" type="date" name="tgl_daftar" value="{{date('Y-m-d')}}">
-										</div><br>
-										<div>
+										</div>
+										<div class="form-group">
 											<label>Agama</label>
 											<select class="form-control" name="id_agama" required="">
 												<option value="">- Pilih Agama -</option>
@@ -79,16 +79,16 @@
 												<option value="{{$agama->id_agama}}">{{$agama->nama_agama}}</option>
 												@endforeach
 											</select>
-										</div><br>
-										<div>
+										</div>
+										<div class="form-group">
 											<label>Alamat</label>
 											<textarea class="form-control" type="text" name="alamat" cols="80" rows="3">{{ old('alamat') }}</textarea>
-										</div><br>
-										<div>
+										</div>
+										<div class="form-group">
 											<label>No Telepon</label>
 											<input class="form-control" type="number" name="telp" value="{{ old('telp') }}">
-										</div><br><br>
-										<div>
+										</div>
+										<div class="form-group">
 											<input class="btn btn-primary" type="submit" name="submit" value="Tambahkan">
 											{{csrf_field()}}
 											<input type="reset" class="btn btn-danger" value="Reset">

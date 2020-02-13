@@ -41,40 +41,40 @@
 					            <div class="box-body">
 					            	@include('nurul_nabawi/validation')
 					            	{!! Form::model($patients,['route'=>['patient.update',$patients->id_pasien],'method'=>'PUT']) !!}
-				            		<div>
+				            		<div class="form-group">
 										<label>NIP</label>
 										<input class="form-control" type="text" name="nip" value="{{ $patients->nip }}">
-									</div><br>
-									<div>
+									</div>
+									<div class="form-group">
 										<label>Nama</label>
 										<input class="form-control" type="text" name="nama_pasien" value="{{ $patients->nama_pasien }}">
-									</div><br>
-									<div>
+									</div>
+									<div class="form-group">
 										<label>Jenis Kelamin</label>
 										{{ Form::select('id_gender', \App\Gender::pluck('nama_gender', 'id_gender'), NULL, ['class'=>'form-control']) }}
-									</div><br>
-									<div>
+									</div>
+									<div class="form-group">
 										<label>Tanggal Lahir</label>
 										<input class="form-control" type="date" name="tgl_lahir" value="{{ $patients->tgl_lahir }}">
-									</div><br>
-									<div>
+									</div>
+									<div class="form-group">
 										<label>Tanggal Daftar</label>
 										<input class="form-control" type="date" name="tgl_daftar" value="{{ $patients->tgl_daftar }}">
-									</div><br>
-									<div>
+									</div>
+									<div class="form-group">
 										<label>Agama</label>
 										{{ Form::select('id_agama', \App\Agama::pluck('nama_agama', 'id_agama'), NULL, ['class'=>'form-control']) }}
-									</div><br>
-									<div>
+									</div>
+									<div class="form-group">
 										<label>Alamat</label>
 										<textarea class="form-control" name="alamat" cols="80" rows="3">{{ $patients->alamat }}</textarea>
 										<!-- <input class="form-control" type="text" name="alamat" value="{{ $patients->alamat }}"> -->
-									</div><br>
-									<div>
+									</div>
+									<div class="form-group">
 										<label>No Telepon</label>
 										<input class="form-control" type="text" name="telp" value="{{ $patients->telp }}">
-									</div><br><br>
-									<div>
+									</div>
+									<div class="form-group">
 										<input class="btn btn-primary" type="submit" name="submit" value="Simpan">
 										<input type="reset" class="btn btn-danger" value="Reset">
 										{{csrf_field()}}

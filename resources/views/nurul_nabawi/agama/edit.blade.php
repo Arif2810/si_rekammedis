@@ -42,11 +42,11 @@
 					            	@include('nurul_nabawi/validation')
 					            	@include('nurul_nabawi/notification')
 					            	<form action="{{ url('/agama') }}/{{ $agamas->id_agama }}" method="post">
-					            		<div>
+					            		<div class="form-group">
 											<label>Agama</label>
 											<input class="form-control" type="text" name="nama_agama" value="{{ $agamas->nama_agama }}">
-										</div><br><br>								
-										<div>
+										</div>							
+										<div class="form-group">
 											<input class="btn btn-primary" type="submit" name="submit" value="Simpan">
 											<input type="reset" class="btn btn-danger" value="Reset">
 											{{csrf_field()}}

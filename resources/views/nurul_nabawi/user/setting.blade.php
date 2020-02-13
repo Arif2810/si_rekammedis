@@ -50,31 +50,31 @@
 					            	@endif
 
 					            	<form action="{{ route('user.setting') }}" method="post">
-										<div>
+										<div class="form-group">
 											<label>Nama</label>
 											<input class="form-control" type="text" name="name" value="{{ old('name', $users->name) }}" required="">
-										</div><br>
-										<div>
+										</div>
+										<div class="form-group">
 											<label>Username</label>
 											<input class="form-control" type="text" name="username" value="{{ old('username', $users->username) }}" required="">
-										</div><br>
-										<div>
+										</div>
+										<div class="form-group">
 											<label>Email</label>
 											<input class="form-control" type="email" name="email" value="{{ old('email', $users->email) }}" required="">
-										</div><br>
-										<div>
+										</div class="form-group">
+										<div class="form-group">
 											<label>Password</label>
 											<input class="form-control" type="password" name="password">
 											<div class="form-text text-muted">
-												<small>kosongkan password apabila tidak diubah</small>
+												<small style="color: salmon">kosongkan password apabila tidak diubah</small>
 											</div>
-										</div><br>
-										<div>
+										</div>
+										<div class="form-group">
 											<label>Ulangi Password</label>
 											<input class="form-control" type="password" name="repassword">
-										</div><br><br>
+										</div>
 										
-										<div>
+										<div class="form-group">
 											<input class="btn btn-primary" type="submit" name="submit" value="Simpan">
 											<input type="reset" class="btn btn-danger" value="Reset">
 											{{csrf_field()}}
