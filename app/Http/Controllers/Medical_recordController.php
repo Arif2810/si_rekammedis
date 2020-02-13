@@ -54,7 +54,8 @@ class Medical_recordController extends Controller
 
         // insert data
         $this->validate($request, [
-          'image' => 'image|mimes:jpg,jpeg,png,JPG,JPEG,PNG|max:2000',
+          'image' => 'mimes:jpg,jpeg,png,pdf,JPG,JPEG,PNG,PDF|max:2000',
+          'image2' => 'mimes:jpg,jpeg,png,pdf,JPG,JPEG,PNG,PDF|max:2000',
           'keluhan' => 'required',
           'check' => 'required',
           'riwayat' => 'required',
@@ -71,11 +72,19 @@ class Medical_recordController extends Controller
         $medical_records->check = $request->check;
 
         if($request->hasFile('image')){
-            $file = $request->file('image');
-            $fileName = time().'.'.$file->getClientOriginalExtension();
-            $destinationPath = public_path('/image');
-            $file->move($destinationPath, $fileName);
-            $medical_records->image = $fileName;
+          $file = $request->file('image');
+          $fileName = time().'.'.$file->getClientOriginalExtension();
+          $destinationPath = public_path('/image');
+          $file->move($destinationPath, $fileName);
+          $medical_records->image = $fileName;
+        }
+
+        if($request->hasFile('image2')){
+          $file = $request->file('image2');
+          $fileName = time().'.'.$file->getClientOriginalExtension();
+          $destinationPath = public_path('/image');
+          $file->move($destinationPath, $fileName);
+          $medical_records->image2 = $fileName;
         }
 
         $medical_records->save();
@@ -137,12 +146,20 @@ class Medical_recordController extends Controller
       $medical_records->check = $request->check;
 
       if($request->hasFile('image')){
-            $file = $request->file('image');
-            $fileName = time().'.'.$file->getClientOriginalExtension();
-            $destinationPath = public_path('/image');
-            $file->move($destinationPath, $fileName);
-            $medical_records->image = $fileName;
-        }
+        $file = $request->file('image');
+        $fileName = time().'.'.$file->getClientOriginalExtension();
+        $destinationPath = public_path('/image');
+        $file->move($destinationPath, $fileName);
+        $medical_records->image = $fileName;
+      }
+
+      if($request->hasFile('image2')){
+        $file = $request->file('image2');
+        $fileName = time().'.'.$file->getClientOriginalExtension();
+        $destinationPath = public_path('/image');
+        $file->move($destinationPath, $fileName);
+        $medical_records->image2 = $fileName;
+      }
 
       $medical_records->save();
       $medical_records->medicines()->sync($request->medicines);

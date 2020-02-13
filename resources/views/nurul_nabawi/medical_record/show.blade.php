@@ -111,8 +111,12 @@
                   <tr>
                     <th style="vertical-align: middle;">File</th>
                     <td>
-                      <img src="{{asset('image/'.$medical_records->image)}}" style="width: 40%;margin-bottom: 10px;">
-                    </td>
+                      <img src="{{asset('image/'.$medical_records->image)}}" style="width: 30%; margin:5px;">
+                      {{ $medical_records->image }} &nbsp;&nbsp;&nbsp;
+                      <img src="{{asset('image/'.$medical_records->image2)}}" style="width: 30%; margin:5px;">
+                      {{ $medical_records->image2 }}<br>
+                      <small style="color: salmon">untuk melihat detail file silahkan klik kanan pada ikon file, pilih <em>"buka gambar pada tab baru"</em></small>
+                    </td>   
                   </tr>
                 </thead>
               </table><br>

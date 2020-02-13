@@ -107,7 +107,9 @@
 				            			<div class="form-group">
 										<label>File</label><br>
 										<img src="{{asset('image/'.$medical_records->image)}}" alt="gambar">
-										<input type="file" name="image" value="{{ $medical_records->image }}" class="form-control">
+										<input type="file" name="image" value="{{ $medical_records->image }}" class="form-control" style="margin-bottom: 10px;">
+										<img src="{{asset('image/'.$medical_records->image2)}}" alt="gambar">
+										<input type="file" name="image2" value="{{ $medical_records->image2 }}" class="form-control">
 									</div>
 				            		</div>
 				            	</div>

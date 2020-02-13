@@ -120,9 +120,10 @@
 										</div>
 										<div class="form-group">
 											<label>Upload File</label>
-								            <input type="file" name="image" value="" class="form-control">
-								            <small style="color: salmon">file yang di upload berformat jpg, jpeg, png</small>
-							            </div>
+					            <input type="file" name="image" value="" class="form-control" style="margin-bottom: 5px;">
+					            <input type="file" name="image2" value="" class="form-control">
+					            <small style="color: salmon">file yang di upload berformat jpg, jpeg, png</small>
+				            </div>
 									</div>
 								</div>
 
