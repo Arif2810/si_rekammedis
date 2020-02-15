@@ -11,6 +11,7 @@
 	  	</header>
 		<!-- Left side column. contains the logo and sidebar -->
 		<aside class="main-sidebar">
+			<title>Tambah Data Obat</title>
 			@include('templates.sidebar')
 		</aside>
 

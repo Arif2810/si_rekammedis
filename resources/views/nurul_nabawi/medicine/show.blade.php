@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>Detail Data Obat</title>
 	@include('templates.head')
 </head>
 <body class="hold-transition skin-blue sidebar-mini">

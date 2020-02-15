@@ -3,6 +3,17 @@
 <head>
 	@include('templates.head')
   <title>Halaman Rekam Medis</title>
+  <style type="text/css">
+    .table ul{
+      padding-left: 0;
+    }
+
+    .table ul li{
+      list-style-type: none;
+      background-color: rgb(245, 245, 245);
+      margin-bottom: 2px;
+    }
+  </style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<title>Edit Data Obat</title>
 	@include('templates.head')
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -46,7 +47,8 @@
 											</div>
 											<div class="form-group">
 												<label>Deskripsi</label>
-												<input class="form-control" type="text" name="deskripsi" value="{{ $medicines->deskripsi }}">
+												<textarea class="form-control" type="text" name="deskripsi">{{ $medicines->deskripsi }}</textarea>
+												<!-- <input class="form-control" type="text" name="deskripsi" value="{{ $medicines->deskripsi }}"> -->
 											</div>
 											<div class="form-group">
 												<label>Stok</label>
