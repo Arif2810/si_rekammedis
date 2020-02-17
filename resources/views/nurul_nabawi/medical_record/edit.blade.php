@@ -56,8 +56,8 @@
 											<input class="form-control" type="date" name="tgl_periksa" value="{{ $medical_records->tgl_periksa }}">
 										</div>
 										<div class="form-group">
-											{{ Form::label ('id_pasien', "Nama Pasien") }}
-											{{ Form::select('id_pasien', \App\Patient::pluck('nama_pasien', 'id_pasien'), NULL, ['class'=>'form-control', 'id'=>'pasien']) }}
+											{{ Form::label ('id_pasien', "Nama Pasien") }}<br>
+											{{ Form::select('id_pasien', \App\Patient::pluck('nama_pasien', 'id_pasien'), NULL, ['class'=>'form-control', 'id'=>'pasien', 'style'=>'width: 100%']) }}
 										</div>
 										<div class="form-group">
 											<label for="riwayat">Riwayat Penyakit</label>
@@ -76,8 +76,12 @@
 				            		@if(Auth::user()->akses == 'admin')
 					            		<div class="col-xs-6">								            		
 											<div class="form-group">
-												{{ Form::label ('id_obat', "Obat") }}
-												{{ Form::select('medicines[]', \App\Medicine::pluck('nama_obat', 'id_obat'), NULL, ['class'=>'form-control', 'id'=>'obat', 'multiple'=>'multiple']) }}						
+												{{ Form::label ('id_tindakan', "Tindakan") }}<br>
+												{{ Form::select('treatments[]', \App\Treatment::pluck('nama_tindakan', 'id_tindakan'), NULL, ['class'=>'form-control', 'id'=>'tindakan', 'multiple'=>'multiple', 'style'=>'width: 100%']) }}
+											</div>
+											<div class="form-group">
+												{{ Form::label ('id_obat', "Obat") }}<br>
+												{{ Form::select('medicines[]', \App\Medicine::pluck('nama_obat', 'id_obat'), NULL, ['class'=>'form-control', 'id'=>'obat', 'multiple'=>'multiple', 'style'=>'width: 100%']) }}						
 											</div>
 											<div class="form-group">
 												<label for="resep">Resep</label>
@@ -87,10 +91,6 @@
 												<label for="ket">Keterangan</label>
 												<textarea class="form-control" name="ket" id="ket" cols="80" rows="3">{{ $medical_records->ket }}</textarea>
 											</div>
-											<div class="form-group">
-												{{ Form::label ('id_tindakan', "Tindakan") }}
-												{{ Form::select('treatments[]', \App\Treatment::pluck('nama_tindakan', 'id_tindakan'), NULL, ['class'=>'form-control', 'id'=>'tindakan', 'multiple'=>'multiple']) }}
-											</div>
 					            		</div>
 				            		@endif
 				            	</div>
@@ -98,17 +98,17 @@
 				            	<div class="row">
 				            		<div class="col-xs-6">
 				            			<div class="form-group">
-											<label>Diagnosa</label>
-											{{ Form::select('id_diagnosa', \App\Diagnosis::pluck('nama_diagnosa', 'id_diagnosa'), NULL, ['class'=>'form-control', 'id'=>'diagnosa']) }}
+											<label>Diagnosa</label><br>
+											{{ Form::select('id_diagnosa', \App\Diagnosis::pluck('nama_diagnosa', 'id_diagnosa'), NULL, ['class'=>'form-control', 'id'=>'diagnosa', 'style'=>'width: 100%']) }}
 											@if(Auth::user()->akses !== 'admin')
 												<small style="color: salmon;"><em>pilih</em> "Tidak ada"!</small>
 											@endif
 										</div>
 				            			<div class="form-group">
 										<label>File</label><br>
-										<img src="{{asset('image/'.$medical_records->image)}}" alt="gambar">
+										<img src="{{asset('image/'.$medical_records->image)}}" alt="file">
 										<input type="file" name="image" value="{{ $medical_records->image }}" class="form-control" style="margin-bottom: 10px;">
-										<img src="{{asset('image/'.$medical_records->image2)}}" alt="gambar">
+										<img src="{{asset('image/'.$medical_records->image2)}}" alt="file">
 										<input type="file" name="image2" value="{{ $medical_records->image2 }}" class="form-control">
 									</div>
 				            		</div>

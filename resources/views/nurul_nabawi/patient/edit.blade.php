@@ -43,11 +43,11 @@
 					            	{!! Form::model($patients,['route'=>['patient.update',$patients->id_pasien],'method'=>'PUT']) !!}
 				            		<div class="form-group">
 										<label>NIP</label>
-										<input class="form-control" type="text" name="nip" value="{{ $patients->nip }}">
+										<input class="form-control" type="number" name="nip" value="{{ $patients->nip }}" required="">
 									</div>
 									<div class="form-group">
 										<label>Nama</label>
-										<input class="form-control" type="text" name="nama_pasien" value="{{ $patients->nama_pasien }}">
+										<input class="form-control" type="text" name="nama_pasien" value="{{ $patients->nama_pasien }}" required="">
 									</div>
 									<div class="form-group">
 										<label>Jenis Kelamin</label>

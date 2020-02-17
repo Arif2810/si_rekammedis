@@ -4,6 +4,10 @@
 	@include('templates.head')
   <title>Halaman Rekam Medis</title>
   <style type="text/css">
+    .table .tr{
+      background-color: rgb(230, 230, 230);
+    }
+
     .table ul{
       padding-left: 0;
     }
@@ -57,7 +61,7 @@
               <table id="example1" class="table table-bordered table-hover">
                 <thead>
                   <?php $no=1; ?>
-                  <tr style="background-color: rgb(230, 230, 230);">
+                  <tr class="tr">
                     <th>No</th>
                     <th>Tgl Periksa</th>
                     <th>Nama Pasien</th>

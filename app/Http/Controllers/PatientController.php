@@ -19,7 +19,7 @@ class PatientController extends Controller
      */
     public function index(){
         
-        $patients = Patient::orderBy('id_pasien', 'DESC')->get(); 
+        $patients = Patient::orderBy('nip', 'DESC')->get(); 
         return view('nurul_nabawi.patient.index', ['patients'=>$patients]);
     }
 
@@ -99,17 +99,13 @@ class PatientController extends Controller
      */
     public function update(Request $request, $id_pasien){
 
-        $this->validate($request, [
-            'nip' => 'required|unique:patients|min:8|max:8',
-            'nama_pasien' => 'required',
-            'jk' => 'required',
-            'tgl_lahir' => 'required',
-            'tgl_daftar' => 'required',
-            'agama' => 'required',
-            'alamat' => 'required',
-        ]);
-        
         $patients = Patient::find($id_pasien);
+        if($request->nip !== $patients->nip){
+            $this->validate($request, [
+                'nip' => 'required|unique:patients|min:8|max:8',
+            ]);
+        }
+        
         $patients->nip         = $request->nip;
         $patients->nama_pasien = $request->nama_pasien;
         $patients->id_gender   = $request->id_gender;
