@@ -52,7 +52,7 @@
 											<select required="" class="form-control" name="id_pasien" id="pasien" style="width: 100%">
 												<option value=""></option>
 												@foreach($patients as $patient)
-												<option value="{{$patient->id_pasien}}">{{$patient->nama_pasien}}</option>
+												<option value="{{$patient->id_pasien}}">{{ $patient->nip }} - {{$patient->nama_pasien}}</option>
 												@endforeach
 											</select>
 										</div>

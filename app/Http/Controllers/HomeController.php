@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Medical_record;
+use App\Diagnosis;
+use DB;
 
 class HomeController extends Controller
 {
@@ -22,7 +25,10 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('nurul_nabawi.home');
+    {   
+        $medical_records = DB::table('medical_records')
+                            ->join('diagnoses', 'diagnoses.id_diagnosa', '=', 'medical_records.id_diagnosa')
+                            ->get();
+        return view('nurul_nabawi.home', compact('medical_records'));
     }
 }

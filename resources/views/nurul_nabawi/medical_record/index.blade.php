@@ -74,7 +74,7 @@
                   @foreach($medical_records as $medical_records)
                   <tr>
                     <td>{{ $no++ }}</td>
-                    <td>{{ $medical_records->tgl_periksa }}</td>
+                    <td>{{ date('d-m-Y', strtotime($medical_records->tgl_periksa)) }}</td>
                     <td>{{ $medical_records->patients->nama_pasien }}</td>
                     <td>{{ $medical_records->diagnoses->nama_diagnosa }}</td>
                     <td>

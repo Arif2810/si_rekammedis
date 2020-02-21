@@ -80,8 +80,18 @@
         <!-- ./col -->
       </div>
       <!-- /.row -->
+
+      <div class="row" style="margin-bottom: 10px">
+        <div class="col-md-10">
+          <canvas id="myChart" width="400" height="400"></canvas>
+        </div>
+      </div>
+
+      
+
+
       <!-- Main row -->
-      <div class="row">
+      <!-- <div class="row"> -->
         <!-- Left col -->
         <!-- <section class="col-lg-7 connectedSortable"> -->
           <!-- Custom tabs (Charts with tabs)-->
@@ -89,7 +99,7 @@
         <!-- </section> -->
         <!-- /.Left col -->
         <!-- right col (We are only adding the ID to make the widgets sortable)-->
-        <section class="col-lg-5 connectedSortable">
+        <!-- <section class="col-lg-5 connectedSortable"> -->
 
           <!-- Map box -->
 
@@ -100,15 +110,15 @@
           <!-- /.box -->
 
           <!-- Calendar -->
-          <div class="box box-solid bg-green-gradient">
+          <!-- <div class="box box-solid bg-green-gradient">
             <div class="box-header">
               <i class="fa fa-calendar"></i>
 
-              <h3 class="box-title">Calendar</h3>
+              <h3 class="box-title">Calendar</h3> -->
               <!-- tools box -->
-              <div class="pull-right box-tools">
+              <!-- <div class="pull-right box-tools"> -->
                 <!-- button with a dropdown -->
-                <div class="btn-group">
+                <!-- <div class="btn-group">
                   <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown">
                     <i class="fa fa-bars"></i></button>
                   <ul class="dropdown-menu pull-right" role="menu">
@@ -121,31 +131,31 @@
                 <button type="button" class="btn btn-success btn-sm" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
                 <button type="button" class="btn btn-success btn-sm" data-widget="remove"><i class="fa fa-times"></i>
-                </button>
-              </div>
+                </button> -->
+              <!-- </div> -->
               <!-- /. tools -->
-            </div>
+            <!-- </div> -->
             <!-- /.box-header -->
-            <div class="box-body no-padding">
+            <!-- <div class="box-body no-padding"> -->
               <!--The calendar -->
-              <div id="calendar" style="width: 100%"></div>
-            </div>
+              <!-- <div id="calendar" style="width: 100%"></div>
+            </div> -->
             <!-- /.box-body -->
-            <div class="box-footer text-black">
+            <!-- <div class="box-footer text-black">
               <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-6"> -->
                   <!-- Progress bars -->
 
                 <!-- /.col -->
-              </div>
+              <!-- </div> -->
               <!-- /.row -->
-            </div>
-          </div>
+            <!-- </div>
+          </div> -->
           <!-- /.box -->
 
-        </section>
+        <!-- </section> -->
         <!-- right col -->
-      </div>
+      <!-- </div> -->
       <!-- /.row (main row) -->
 
     </section>
@@ -168,6 +178,7 @@
 </div>
 <!-- ./wrapper -->
 
-@include('templates.scripts')  
+@include('templates.scripts')
+
 </body>
 </html>

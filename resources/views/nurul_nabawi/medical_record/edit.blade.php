@@ -56,8 +56,17 @@
 											<input class="form-control" type="date" name="tgl_periksa" value="{{ $medical_records->tgl_periksa }}">
 										</div>
 										<div class="form-group">
-											{{ Form::label ('id_pasien', "Nama Pasien") }}<br>
-											{{ Form::select('id_pasien', \App\Patient::pluck('nama_pasien', 'id_pasien'), NULL, ['class'=>'form-control', 'id'=>'pasien', 'style'=>'width: 100%']) }}
+											<label for="pasien">Nama Pasien</label><br>
+											<select class="form-control" name="id_pasien" id="pasien" style="width: 100%">
+												@foreach($patients as $patient)
+													<option value="{{ $patient->id_pasien }}">
+														{{ $patient->nip }} - {{ $patient->nama_pasien }}
+													</option>
+												@endforeach
+											</select>
+
+											<!-- {{ Form::label ('id_pasien', "Nama Pasien") }}<br>
+											{{ Form::select('id_pasien', \App\Patient::pluck('nama_pasien', 'id_pasien'), NULL, ['class'=>'form-control', 'id'=>'pasien', 'style'=>'width: 100%']) }} -->
 										</div>
 										<div class="form-group">
 											<label for="riwayat">Riwayat Penyakit</label>

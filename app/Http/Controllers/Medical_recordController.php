@@ -114,13 +114,13 @@ class Medical_recordController extends Controller
     public function edit($id_mr){
 
         $medical_records = Medical_record::findOrFail($id_mr);
-        // $medicines = Medicine::all();
+        $patients = Patient::all();
         // $obat = array();
         // foreach($medicines as $medicine) {
         //   $obat[$medicine->id_obat] = $medicine->nama_obat;
         // }
 
-        return view('nurul_nabawi.medical_record.edit', compact('medical_records'));
+        return view('nurul_nabawi.medical_record.edit', compact('medical_records', 'patients'));
         // ->withMedicines($obat);
     }
 
