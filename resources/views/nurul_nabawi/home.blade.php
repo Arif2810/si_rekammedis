@@ -192,7 +192,7 @@ var myChart = new Chart(ctx, {
     data: {
         labels: <?= json_encode($diagnosa) ?>,
         datasets: [{
-            label: '# of Votes',
+            label: '# Grafik Diagnosa',
             data: [3, 1, 4, 8, 0, 0, 0, 0, 0, 0, 3, 0, 0, 5, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
