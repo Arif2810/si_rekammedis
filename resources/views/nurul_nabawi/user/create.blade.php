@@ -2,6 +2,7 @@
 <html>
 <head>
 	@include('templates.head')
+	<title>Tambah User</title>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 	<div class="wrapper">
